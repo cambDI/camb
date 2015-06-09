@@ -1,0 +1,595 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{review_pcm}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Westen}{W.}%
+     {Gerard J.~P.}{G.~J.~P.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Wegner}{W.}%
+     {Jorg~K.}{J.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {IJzerman}{I.}%
+     {Adriaan~P.}{A.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vlijmen}{V.}%
+     {Herman W.~T.}{H.~W.~T.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Bender}{B.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {The Royal Society of Chemistry}%
+  }
+  \strng{namehash}{WGJPvWJKIAP+1}
+  \strng{fullhash}{WGJPvWJKIAPVHWTvBA1}
+  \field{issue}{1}
+  \field{pages}{16\bibrangedash 30}
+  \field{title}{Proteochemometric modeling as a tool to design selective
+  compounds and for extrapolating to novel targets}
+  \field{volume}{2}
+  \field{journaltitle}{Med. Chem. Commun.}
+  \field{year}{2011}
+\endentry
+
+\entry{cortesReview}{article}{}
+  \name{author}{11}{}{%
+    {{}%
+     {Cortes~Ciriano}{C.~C.}%
+     {Isidro}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ain}{A.}%
+     {Qurrat~U}{Q.~U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Subramanian}{S.}%
+     {Vigneshwari}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lenselink}{L.}%
+     {Eelke~B}{E.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mendez~Lucio}{M.~L.}%
+     {Oscar}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {IJzerman}{I.}%
+     {Adriaan~P}{A.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wohlfahrt}{W.}%
+     {Gerd}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prusis}{P.}%
+     {Peteris}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Malliavin}{M.}%
+     {Th\'er\`ese}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Westen}{W.}%
+     {Gerard~JP}{G.~J.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Bender}{B.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CCIAQUSV+1}
+  \strng{fullhash}{CCIAQUSVLEBMLOIAPWGPPMTWGJvBA1}
+  \field{title}{Polypharmacology Modelling Using Proteochemometrics: Recent
+  Developments and Future Prospects}
+  \field{journaltitle}{In revision at Med. Chem. Comm}
+\endentry
+
+\entry{padel}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Yap}{Y.}%
+     {Chun~Wei}{C.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{YCW1}
+  \strng{fullhash}{YCW1}
+  \field{pages}{1466\bibrangedash 1474}
+  \field{title}{{PaDEL-descriptor: an open source software to calculate
+  molecular descriptors and fingerprints.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/21425294
+  \endverb
+  \field{volume}{32}
+  \field{journaltitle}{J. Comput. Chem.}
+  \field{year}{2011}
+\endentry
+
+\entry{morgan}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Rogers}{R.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hahn}{H.}%
+     {Mathew}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{RDHM1}
+  \strng{fullhash}{RDHM1}
+  \field{number}{5}
+  \field{pages}{742\bibrangedash 754}
+  \field{title}{{Extended-connectivity fingerprints.}}
+  \field{volume}{50}
+  \field{journaltitle}{J. Chem. Inf. Model.}
+  \field{year}{2010}
+\endentry
+
+\entry{AAs1}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Westen}{W.}%
+     {GJP}{G.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Swier}{S.}%
+     {RF}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wegner}{W.}%
+     {J\"{o}rg~K}{J.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {IJzerman}{I.}%
+     {Adriaan~P.}{A.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vlijmen}{V.}%
+     {Herman~WT}{H.~W.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Bender}{B.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WGvSRWJK+1}
+  \strng{fullhash}{WGvSRWJKIAPVHWvBA1}
+  \field{number}{1}
+  \field{pages}{41}
+  \field{title}{{Benchmarking of protein descriptor sets in proteochemometric
+  modeling (part 1): comparative study of 13 amino acid descriptor sets}}
+  \field{volume}{5}
+  \field{journaltitle}{J. Cheminf.}
+  \field{year}{2013}
+\endentry
+
+\entry{AAs2}{article}{}
+  \name{author}{10}{}{%
+    {{}%
+     {Westen}{W.}%
+     {Gerard~JP}{G.~J.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Swier}{S.}%
+     {Remco~F}{R.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wegner}{W.}%
+     {J\"{o}rg~K}{J.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {IJzerman}{I.}%
+     {Adriaan~P}{A.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vlijmen}{V.}%
+     {Herman~WT}{H.~W.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Bender}{B.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cortes-Ciriano}{C.-C.}%
+     {Isidro}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Overington}{O.}%
+     {John~P}{J.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Westen}{W.}%
+     {Gerard J P~Van}{G.~J. P.~V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vlijmen}{V.}%
+     {Herman W T~Van}{H.~W. T.~V.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WGJvSRFWJK+1}
+  \strng{fullhash}{WGJvSRFWJKIAPVHWvBACCIOJPWGJPVVHWTV1}
+  \field{number}{1}
+  \field{pages}{41}
+  \field{title}{{Benchmarking of protein descriptor sets in proteochemometric
+  modeling (part 2): modeling performance of 13 amino acid descriptor sets}}
+  \field{volume}{5}
+  \field{journaltitle}{Journal of Cheminformatics}
+  \field{year}{2013}
+\endentry
+
+\entry{protr}{manual}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Xiao}{X.}%
+     {Nan}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Xu}{X.}%
+     {Qingsong}{Q.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{XNXQ1}
+  \strng{fullhash}{XNXQ1}
+  \field{note}{R package version 0.2-1}
+  \field{title}{protr: Protein Sequence Descriptor Calculation and Similarity
+  Computation with R}
+  \field{year}{2014}
+\endentry
+
+\entry{cortesGP}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {{Cortes Ciriano}}{C.}%
+     {Isidro}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Westen}{W.}%
+     {Gerard J~P}{G.~J.~P.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Lenselink}{L.}%
+     {Eelke~B}{E.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Murrell}{M.}%
+     {Daniel~S}{D.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bender}{B.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Malliavin}{M.}%
+     {Th\'{e}r\`{e}se}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CIWGJPvLEB+1}
+  \strng{fullhash}{CIWGJPvLEBMDSBAMT1}
+  \field{title}{{Proteochemometrics Modeling in a Bayesian Framework}}
+  \field{journaltitle}{J. Cheminf. Accepted}
+\endentry
+
+\entry{Kalliokoski2013}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Kalliokoski}{K.}%
+     {Tuomo}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kramer}{K.}%
+     {Christian}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vulpetti}{V.}%
+     {Anna}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gedeck}{G.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KTKCVA+1}
+  \strng{fullhash}{KTKCVAGP1}
+  \field{number}{4}
+  \field{pages}{e61007}
+  \field{title}{{Comparability of mixed IC50 data - a statistical analysis.}}
+  \field{volume}{8}
+  \field{journaltitle}{PLoS One}
+  \field{year}{2013}
+\endentry
+
+\entry{svmreview}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Ben-Hur}{B.-H.}%
+     {Asa}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ong}{O.}%
+     {Cheng~Soon}{C.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sonnenburg}{S.}%
+     {Sören}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schölkopf}{S.}%
+     {Bernhard}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rätsch}{R.}%
+     {Gunnar}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{1}{}{%
+    {{}%
+     {Lewitter}{L.}%
+     {Fran}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BHAOCSSS+1}
+  \strng{fullhash}{BHAOCSSSSBRG1}
+  \field{number}{10}
+  \field{pages}{e1000173}
+  \field{title}{{Support Vector Machines and Kernels for Computational
+  Biology}}
+  \field{volume}{4}
+  \field{journaltitle}{{PLoS} Computational Biology}
+  \field{month}{10}
+  \field{year}{2008}
+\endentry
+
+\entry{rf}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Breiman}{B.}%
+     {Leo}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BL1}
+  \strng{fullhash}{BL1}
+  \field{number}{1}
+  \field{pages}{5\bibrangedash 32}
+  \field{title}{Random Forests}
+  \field{volume}{45}
+  \field{journaltitle}{Machine Learning}
+  \field{month}{10}
+  \field{year}{2001}
+\endentry
+
+\entry{gbm}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Friedman}{F.}%
+     {Jerome~H.}{J.~H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FJH1}
+  \strng{fullhash}{FJH1}
+  \field{note}{Mathematical Reviews number ({MathSciNet)} {MR1873328},
+  Zentralblatt {MATH} identifier01829052}
+  \field{number}{5}
+  \field{pages}{1189\bibrangedash 1232}
+  \field{title}{Greedy function approximation: A gradient boosting machine.}
+  \field{volume}{29}
+  \field{journaltitle}{The Annals of Statistics}
+\endentry
+
+\entry{consonni}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Consonni}{C.}%
+     {Viviana}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ballabio}{B.}%
+     {Davide}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Todeschini}{T.}%
+     {Roberto}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CVBDTR1}
+  \strng{fullhash}{CVBDTR1}
+  \field{number}{3-4}
+  \field{pages}{194\bibrangedash 201}
+  \field{title}{{Evaluation of model predictive ability by external validation
+  techniques}}
+  \field{volume}{24}
+  \field{journaltitle}{J. Chemometrics}
+  \field{year}{2010}
+\endentry
+
+\entry{beware}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Golbraikh}{G.}%
+     {Alexander}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tropsha}{T.}%
+     {Alexander}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GATA1}
+  \strng{fullhash}{GATA1}
+  \field{number}{4}
+  \field{pages}{269\bibrangedash 276}
+  \field{title}{{Beware of q2!}}
+  \field{volume}{20}
+  \field{journaltitle}{J. Mol. Graph. Model.}
+  \field{month}{01}
+  \field{year}{2002}
+\endentry
+
+\entry{earnest}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Tropsha}{T.}%
+     {Alexander}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gramatica}{G.}%
+     {Paola}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gombar}{G.}%
+     {Vijay~K.}{V.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TAGPGVK1}
+  \strng{fullhash}{TAGPGVK1}
+  \field{number}{1}
+  \field{pages}{69\bibrangedash 77}
+  \field{title}{{The Importance of Being Earnest: Validation is the Absolute
+  Essential for Successful Application and Interpretation of {{QSPR}} Models}}
+  \field{volume}{22}
+  \field{journaltitle}{{QSAR} Comb. Sci.}
+  \field{year}{2003}
+\endentry
+
+\entry{caretEnsemble}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Mayer}{M.}%
+     {Zach}{Z.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MZ1}
+  \strng{fullhash}{MZ1}
+  \field{title}{caret{E}nsemble: Framework for combining caret models into
+  ensembles. [R package version 1.0]}
+  \field{year}{2013}
+\endentry
+
+\entry{caruana}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Caruana}{C.}%
+     {Rich}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Niculescu-Mizil}{N.-M.}%
+     {Alexandru}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Crew}{C.}%
+     {Geoff}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ksikes}{K.}%
+     {Alex}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{CRNMACG+1}
+  \strng{fullhash}{CRNMACGKA1}
+  \field{booktitle}{Proceedings of the Twenty-first International Conference on
+  Machine Learning}
+  \field{pages}{18}
+  \field{series}{ICML '04}
+  \field{title}{Ensemble Selection from Libraries of Models}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{year}{2004}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

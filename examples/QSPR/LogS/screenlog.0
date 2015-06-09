@@ -1,0 +1,1778 @@
+A new version of Bioconductor is available after installing the most
+  recent version of R; see http://bioconductor.org/install
+Bioconductor version 2.11 (BiocInstaller 1.8.3), ?biocLite for help
+Loading required package: cluster
+Loading required package: foreach
+Loading required package: lattice
+Loading required package: methods
+Loading required package: plyr
+Loading required package: reshape2
+Loading required package: iterators
+Loading required package: parallel
++ Fold1.Rep1: sigma= 0.003906, C=1e-04 
++ Fold1.Rep1: sigma= 0.015625, C=1e-04 
++ Fold1.Rep1: sigma= 0.062500, C=1e-04 
++ Fold1.Rep1: sigma= 0.250000, C=1e-04 
++ Fold1.Rep1: sigma= 1.000000, C=1e-04 
++ Fold1.Rep1: sigma= 4.000000, C=1e-04 
++ Fold1.Rep1: sigma=16.000000, C=1e-04 
++ Fold1.Rep1: sigma= 0.003906, C=1e-03 
++ Fold1.Rep1: sigma= 0.015625, C=1e-03 
++ Fold1.Rep1: sigma= 0.062500, C=1e-03 
+- Fold1.Rep1: sigma= 0.003906, C=1e-03 
++ Fold1.Rep1: sigma= 0.250000, C=1e-02 
+- Fold1.Rep1: sigma= 1.000000, C=1e-04 
++ Fold1.Rep1: sigma= 0.003906, C=1e-02 
+- Fold1.Rep1: sigma= 0.062500, C=1e-04 
++ Fold1.Rep1: sigma= 4.000000, C=1e-03 
+- Fold1.Rep1: sigma=16.000000, C=1e-04 
++ Fold1.Rep1: sigma= 0.062500, C=1e-02 
+- Fold1.Rep1: sigma= 4.000000, C=1e-04 
+- Fold1.Rep1: sigma= 0.015625, C=1e-04 
++ Fold1.Rep1: sigma= 0.015625, C=1e-02 
++ Fold1.Rep1: sigma= 1.000000, C=1e-03 
+- Fold1.Rep1: sigma= 0.003906, C=1e-04 
++ Fold1.Rep1: sigma= 0.250000, C=1e-03 
+- Fold1.Rep1: sigma= 0.015625, C=1e-03 
+- Fold1.Rep1: sigma= 0.062500, C=1e-03 
++ Fold1.Rep1: sigma= 1.000000, C=1e-02 
++ Fold1.Rep1: sigma= 4.000000, C=1e-02 
+- Fold1.Rep1: sigma= 0.250000, C=1e-04 
++ Fold1.Rep1: sigma=16.000000, C=1e-03 
+- Fold1.Rep1: sigma= 0.250000, C=1e-02 
++ Fold1.Rep1: sigma=16.000000, C=1e-01 
+- Fold1.Rep1: sigma= 0.003906, C=1e-02 
++ Fold1.Rep1: sigma= 0.250000, C=1e-01 
+- Fold1.Rep1: sigma= 4.000000, C=1e-03 
++ Fold1.Rep1: sigma= 0.015625, C=1e-01 
+- Fold1.Rep1: sigma= 0.015625, C=1e-02 
++ Fold1.Rep1: sigma= 1.000000, C=1e-01 
+- Fold1.Rep1: sigma= 0.062500, C=1e-02 
++ Fold1.Rep1: sigma= 4.000000, C=1e-01 
+- Fold1.Rep1: sigma=16.000000, C=1e-03 
++ Fold1.Rep1: sigma= 0.062500, C=1e-01 
+- Fold1.Rep1: sigma=16.000000, C=1e-01 
++ Fold1.Rep1: sigma= 0.062500, C=1e+01 
+- Fold1.Rep1: sigma= 4.000000, C=1e-02 
++ Fold1.Rep1: sigma= 0.015625, C=1e+00 
+- Fold1.Rep1: sigma= 1.000000, C=1e-03 
++ Fold1.Rep1: sigma= 0.003906, C=1e-01 
+- Fold1.Rep1: sigma= 0.250000, C=1e-03 
++ Fold1.Rep1: sigma=16.000000, C=1e-02 
+- Fold1.Rep1: sigma= 1.000000, C=1e-02 
++ Fold1.Rep1: sigma= 0.003906, C=1e+00 
+- Fold1.Rep1: sigma= 0.015625, C=1e-01 
++ Fold1.Rep1: sigma= 1.000000, C=1e+00 
+- Fold1.Rep1: sigma= 0.250000, C=1e-01 
++ Fold1.Rep1: sigma=16.000000, C=1e+00 
+- Fold1.Rep1: sigma= 0.062500, C=1e+01 
++ Fold1.Rep1: sigma= 4.000000, C=1e+02 
+- Fold1.Rep1: sigma= 0.003906, C=1e-01 
++ Fold1.Rep1: sigma= 0.250000, C=1e+00 
+- Fold1.Rep1: sigma= 1.000000, C=1e-01 
++ Fold1.Rep1: sigma= 0.003906, C=1e+01 
+- Fold1.Rep1: sigma= 0.015625, C=1e+00 
++ Fold1.Rep1: sigma= 1.000000, C=1e+01 
+- Fold1.Rep1: sigma= 4.000000, C=1e-01 
++ Fold1.Rep1: sigma= 0.015625, C=1e+01 
+- Fold1.Rep1: sigma= 0.003906, C=1e+00 
++ Fold1.Rep1: sigma= 0.250000, C=1e+01 
+- Fold1.Rep1: sigma= 1.000000, C=1e+00 
++ Fold1.Rep1: sigma= 0.003906, C=1e+02 
+- Fold1.Rep1: sigma= 0.062500, C=1e-01 
++ Fold1.Rep1: sigma= 4.000000, C=1e+00 
+- Fold1.Rep1: sigma=16.000000, C=1e-02 
++ Fold1.Rep1: sigma= 0.062500, C=1e+00 
+- Fold1.Rep1: sigma=16.000000, C=1e+00 
++ Fold1.Rep1: sigma= 0.062500, C=1e+02 
+- Fold1.Rep1: sigma= 4.000000, C=1e+02 
++ Fold2.Rep1: sigma= 0.015625, C=1e-03 
+- Fold1.Rep1: sigma= 0.003906, C=1e+02 
++ Fold2.Rep1: sigma= 0.250000, C=1e-04 
+- Fold1.Rep1: sigma= 1.000000, C=1e+01 
++ Fold2.Rep1: sigma= 0.003906, C=1e-04 
+- Fold1.Rep1: sigma= 0.015625, C=1e+01 
++ Fold1.Rep1: sigma= 1.000000, C=1e+02 
+- Fold1.Rep1: sigma= 0.062500, C=1e+00 
++ Fold1.Rep1: sigma= 4.000000, C=1e+01 
+- Fold1.Rep1: sigma= 0.003906, C=1e+01 
++ Fold1.Rep1: sigma= 0.250000, C=1e+02 
+- Fold1.Rep1: sigma= 0.250000, C=1e+01 
++ Fold1.Rep1: sigma=16.000000, C=1e+02 
+- Fold1.Rep1: sigma= 0.250000, C=1e+00 
++ Fold1.Rep1: sigma=16.000000, C=1e+01 
+- Fold1.Rep1: sigma= 4.000000, C=1e+00 
++ Fold1.Rep1: sigma= 0.015625, C=1e+02 
+- Fold1.Rep1: sigma= 0.062500, C=1e+02 
++ Fold2.Rep1: sigma= 4.000000, C=1e-04 
+- Fold2.Rep1: sigma= 0.015625, C=1e-03 
++ Fold2.Rep1: sigma= 1.000000, C=1e-02 
+- Fold2.Rep1: sigma= 0.003906, C=1e-04 
++ Fold2.Rep1: sigma= 0.250000, C=1e-03 
+- Fold2.Rep1: sigma= 0.250000, C=1e-04 
++ Fold2.Rep1: sigma=16.000000, C=1e-03 
+- Fold1.Rep1: sigma= 4.000000, C=1e+01 
++ Fold2.Rep1: sigma= 0.015625, C=1e-04 
+- Fold1.Rep1: sigma= 0.250000, C=1e+02 
++ Fold2.Rep1: sigma=16.000000, C=1e-04 
+- Fold1.Rep1: sigma= 1.000000, C=1e+02 
++ Fold2.Rep1: sigma= 0.003906, C=1e-03 
+- Fold1.Rep1: sigma= 0.015625, C=1e+02 
++ Fold2.Rep1: sigma= 1.000000, C=1e-04 
+- Fold1.Rep1: sigma=16.000000, C=1e+02 
++ Fold2.Rep1: sigma= 0.062500, C=1e-03 
+- Fold1.Rep1: sigma=16.000000, C=1e+01 
++ Fold2.Rep1: sigma= 0.062500, C=1e-04 
+- Fold2.Rep1: sigma= 4.000000, C=1e-04 
++ Fold2.Rep1: sigma= 0.015625, C=1e-02 
+- Fold2.Rep1: sigma= 1.000000, C=1e-02 
++ Fold2.Rep1: sigma= 0.003906, C=1e+00 
+- Fold2.Rep1: sigma= 0.250000, C=1e-03 
++ Fold2.Rep1: sigma=16.000000, C=1e-02 
+- Fold2.Rep1: sigma= 0.015625, C=1e-04 
++ Fold2.Rep1: sigma= 1.000000, C=1e-03 
+- Fold2.Rep1: sigma=16.000000, C=1e-04 
++ Fold2.Rep1: sigma= 0.062500, C=1e-02 
+- Fold2.Rep1: sigma=16.000000, C=1e-03 
++ Fold2.Rep1: sigma= 0.062500, C=1e-01 
+- Fold2.Rep1: sigma= 0.003906, C=1e-03 
++ Fold2.Rep1: sigma= 0.250000, C=1e-02 
+- Fold2.Rep1: sigma= 0.062500, C=1e-04 
++ Fold2.Rep1: sigma= 4.000000, C=1e-03 
+- Fold2.Rep1: sigma= 0.003906, C=1e+00 
++ Fold2.Rep1: sigma= 0.250000, C=1e+01 
+- Fold2.Rep1: sigma= 0.062500, C=1e-03 
++ Fold2.Rep1: sigma= 4.000000, C=1e-02 
+- Fold2.Rep1: sigma= 1.000000, C=1e-04 
++ Fold2.Rep1: sigma= 0.003906, C=1e-02 
+- Fold2.Rep1: sigma=16.000000, C=1e-02 
++ Fold2.Rep1: sigma= 0.062500, C=1e+00 
+- Fold2.Rep1: sigma= 0.062500, C=1e-01 
++ Fold2.Rep1: sigma= 4.000000, C=1e+00 
+- Fold2.Rep1: sigma= 0.015625, C=1e-02 
++ Fold2.Rep1: sigma= 1.000000, C=1e-01 
+- Fold2.Rep1: sigma= 1.000000, C=1e-03 
++ Fold2.Rep1: sigma= 0.003906, C=1e-01 
+- Fold2.Rep1: sigma= 0.062500, C=1e-02 
++ Fold2.Rep1: sigma= 4.000000, C=1e-01 
+- Fold2.Rep1: sigma= 4.000000, C=1e-03 
++ Fold2.Rep1: sigma= 0.015625, C=1e-01 
+- Fold2.Rep1: sigma= 0.250000, C=1e+01 
++ Fold2.Rep1: sigma=16.000000, C=1e+02 
+- Fold2.Rep1: sigma= 0.250000, C=1e-02 
++ Fold2.Rep1: sigma=16.000000, C=1e-01 
+- Fold2.Rep1: sigma= 0.003906, C=1e-02 
++ Fold2.Rep1: sigma= 0.250000, C=1e-01 
+- Fold2.Rep1: sigma= 0.003906, C=1e-01 
++ Fold2.Rep1: sigma= 0.250000, C=1e+00 
+- Fold2.Rep1: sigma= 4.000000, C=1e-02 
++ Fold2.Rep1: sigma= 0.015625, C=1e+00 
+- Fold2.Rep1: sigma= 4.000000, C=1e+00 
++ Fold2.Rep1: sigma= 0.015625, C=1e+02 
+- Fold2.Rep1: sigma= 0.062500, C=1e+00 
++ Fold2.Rep1: sigma= 4.000000, C=1e+01 
+- Fold2.Rep1: sigma= 4.000000, C=1e-01 
++ Fold2.Rep1: sigma= 0.015625, C=1e+01 
+- Fold2.Rep1: sigma= 1.000000, C=1e-01 
++ Fold2.Rep1: sigma= 0.003906, C=1e+01 
+- Fold2.Rep1: sigma= 0.015625, C=1e+00 
++ Fold2.Rep1: sigma= 1.000000, C=1e+01 
+- Fold2.Rep1: sigma=16.000000, C=1e+02 
++ Fold3.Rep1: sigma= 0.062500, C=1e-03 
+- Fold2.Rep1: sigma= 0.015625, C=1e-01 
++ Fold2.Rep1: sigma= 1.000000, C=1e+00 
+- Fold2.Rep1: sigma= 0.250000, C=1e+00 
++ Fold2.Rep1: sigma=16.000000, C=1e+01 
+- Fold2.Rep1: sigma=16.000000, C=1e-01 
++ Fold2.Rep1: sigma= 0.062500, C=1e+01 
+- Fold2.Rep1: sigma= 0.015625, C=1e+01 
++ Fold2.Rep1: sigma= 1.000000, C=1e+02 
+- Fold2.Rep1: sigma= 0.015625, C=1e+02 
++ Fold3.Rep1: sigma= 1.000000, C=1e-04 
+- Fold2.Rep1: sigma= 0.250000, C=1e-01 
++ Fold2.Rep1: sigma=16.000000, C=1e+00 
+- Fold2.Rep1: sigma= 4.000000, C=1e+01 
++ Fold3.Rep1: sigma= 0.015625, C=1e-04 
+- Fold2.Rep1: sigma= 0.003906, C=1e+01 
++ Fold2.Rep1: sigma= 0.250000, C=1e+02 
+- Fold2.Rep1: sigma= 1.000000, C=1e+01 
++ Fold3.Rep1: sigma= 0.003906, C=1e-04 
+- Fold3.Rep1: sigma= 0.062500, C=1e-03 
++ Fold3.Rep1: sigma= 4.000000, C=1e-02 
+- Fold2.Rep1: sigma= 0.062500, C=1e+01 
++ Fold2.Rep1: sigma= 4.000000, C=1e+02 
+- Fold2.Rep1: sigma=16.000000, C=1e+01 
++ Fold3.Rep1: sigma= 0.062500, C=1e-04 
+- Fold2.Rep1: sigma= 1.000000, C=1e+00 
++ Fold2.Rep1: sigma= 0.003906, C=1e+02 
+- Fold2.Rep1: sigma= 1.000000, C=1e+02 
++ Fold3.Rep1: sigma= 0.003906, C=1e-03 
+- Fold3.Rep1: sigma= 1.000000, C=1e-04 
++ Fold3.Rep1: sigma= 0.003906, C=1e-02 
+- Fold2.Rep1: sigma=16.000000, C=1e+00 
++ Fold2.Rep1: sigma= 0.062500, C=1e+02 
+- Fold3.Rep1: sigma= 0.003906, C=1e-04 
++ Fold3.Rep1: sigma= 0.250000, C=1e-03 
+- Fold3.Rep1: sigma= 0.015625, C=1e-04 
++ Fold3.Rep1: sigma= 1.000000, C=1e-03 
+- Fold3.Rep1: sigma= 0.062500, C=1e-04 
++ Fold3.Rep1: sigma= 4.000000, C=1e-03 
+- Fold2.Rep1: sigma= 4.000000, C=1e+02 
++ Fold3.Rep1: sigma= 0.015625, C=1e-03 
+- Fold3.Rep1: sigma= 4.000000, C=1e-02 
++ Fold3.Rep1: sigma= 0.015625, C=1e+00 
+- Fold2.Rep1: sigma= 0.250000, C=1e+02 
++ Fold3.Rep1: sigma=16.000000, C=1e-04 
+- Fold2.Rep1: sigma= 0.003906, C=1e+02 
++ Fold3.Rep1: sigma= 0.250000, C=1e-04 
+- Fold3.Rep1: sigma= 0.015625, C=1e+00 
++ Fold3.Rep1: sigma= 1.000000, C=1e+01 
+- Fold3.Rep1: sigma= 4.000000, C=1e-03 
++ Fold3.Rep1: sigma= 0.015625, C=1e-01 
+- Fold3.Rep1: sigma= 0.003906, C=1e-03 
++ Fold3.Rep1: sigma= 0.250000, C=1e-02 
+- Fold2.Rep1: sigma= 0.062500, C=1e+02 
++ Fold3.Rep1: sigma= 4.000000, C=1e-04 
+- Fold3.Rep1: sigma= 0.003906, C=1e-02 
++ Fold3.Rep1: sigma= 0.250000, C=1e-01 
+- Fold3.Rep1: sigma= 0.250000, C=1e-03 
++ Fold3.Rep1: sigma=16.000000, C=1e-02 
+- Fold3.Rep1: sigma= 1.000000, C=1e-03 
++ Fold3.Rep1: sigma= 0.003906, C=1e-01 
+- Fold3.Rep1: sigma= 0.015625, C=1e-03 
++ Fold3.Rep1: sigma= 1.000000, C=1e-02 
+- Fold3.Rep1: sigma=16.000000, C=1e-04 
++ Fold3.Rep1: sigma= 0.062500, C=1e-02 
+- Fold3.Rep1: sigma= 1.000000, C=1e+01 
++ Fold4.Rep1: sigma= 0.003906, C=1e-04 
+- Fold3.Rep1: sigma= 0.015625, C=1e-01 
++ Fold3.Rep1: sigma= 1.000000, C=1e+00 
+- Fold3.Rep1: sigma= 0.250000, C=1e-04 
++ Fold3.Rep1: sigma=16.000000, C=1e-03 
+- Fold3.Rep1: sigma= 1.000000, C=1e-02 
++ Fold3.Rep1: sigma= 0.003906, C=1e+00 
+- Fold3.Rep1: sigma= 0.250000, C=1e-01 
++ Fold3.Rep1: sigma=16.000000, C=1e+00 
+- Fold3.Rep1: sigma=16.000000, C=1e-02 
++ Fold3.Rep1: sigma= 0.062500, C=1e+00 
+- Fold3.Rep1: sigma= 0.250000, C=1e-02 
++ Fold3.Rep1: sigma=16.000000, C=1e-01 
+- Fold3.Rep1: sigma= 4.000000, C=1e-04 
++ Fold3.Rep1: sigma= 0.015625, C=1e-02 
+- Fold3.Rep1: sigma= 0.003906, C=1e-01 
++ Fold3.Rep1: sigma= 0.250000, C=1e+00 
+- Fold3.Rep1: sigma= 0.062500, C=1e-02 
++ Fold3.Rep1: sigma= 4.000000, C=1e-01 
+- Fold4.Rep1: sigma= 0.003906, C=1e-04 
++ Fold4.Rep1: sigma= 0.250000, C=1e-03 
+- Fold3.Rep1: sigma= 1.000000, C=1e+00 
++ Fold3.Rep1: sigma= 0.003906, C=1e+02 
+- Fold3.Rep1: sigma=16.000000, C=1e-03 
++ Fold3.Rep1: sigma= 0.062500, C=1e-01 
+- Fold3.Rep1: sigma= 0.003906, C=1e+00 
++ Fold3.Rep1: sigma= 0.250000, C=1e+01 
+- Fold3.Rep1: sigma= 0.062500, C=1e+00 
++ Fold3.Rep1: sigma= 4.000000, C=1e+01 
+- Fold3.Rep1: sigma= 4.000000, C=1e-01 
++ Fold3.Rep1: sigma= 0.015625, C=1e+01 
+- Fold3.Rep1: sigma=16.000000, C=1e+00 
++ Fold3.Rep1: sigma= 0.062500, C=1e+02 
+- Fold3.Rep1: sigma= 0.015625, C=1e-02 
++ Fold3.Rep1: sigma= 1.000000, C=1e-01 
+- Fold3.Rep1: sigma= 0.003906, C=1e+02 
++ Fold4.Rep1: sigma= 0.250000, C=1e-04 
+- Fold3.Rep1: sigma= 0.062500, C=1e-01 
++ Fold3.Rep1: sigma= 4.000000, C=1e+00 
+- Fold3.Rep1: sigma=16.000000, C=1e-01 
++ Fold3.Rep1: sigma= 0.062500, C=1e+01 
+- Fold4.Rep1: sigma= 0.250000, C=1e-03 
++ Fold4.Rep1: sigma=16.000000, C=1e-02 
+- Fold3.Rep1: sigma= 0.250000, C=1e+00 
++ Fold3.Rep1: sigma=16.000000, C=1e+01 
+- Fold3.Rep1: sigma= 0.250000, C=1e+01 
++ Fold3.Rep1: sigma=16.000000, C=1e+02 
+- Fold3.Rep1: sigma= 0.015625, C=1e+01 
++ Fold3.Rep1: sigma= 1.000000, C=1e+02 
+- Fold3.Rep1: sigma= 0.062500, C=1e+02 
++ Fold4.Rep1: sigma= 4.000000, C=1e-04 
+- Fold3.Rep1: sigma= 4.000000, C=1e+01 
++ Fold4.Rep1: sigma= 0.015625, C=1e-04 
+- Fold4.Rep1: sigma= 0.250000, C=1e-04 
++ Fold4.Rep1: sigma=16.000000, C=1e-03 
+- Fold3.Rep1: sigma=16.000000, C=1e+02 
++ Fold4.Rep1: sigma= 0.062500, C=1e-03 
+- Fold3.Rep1: sigma= 4.000000, C=1e+00 
++ Fold3.Rep1: sigma= 0.015625, C=1e+02 
+- Fold3.Rep1: sigma= 0.062500, C=1e+01 
++ Fold3.Rep1: sigma= 4.000000, C=1e+02 
+- Fold3.Rep1: sigma= 1.000000, C=1e-01 
++ Fold3.Rep1: sigma= 0.003906, C=1e+01 
+- Fold4.Rep1: sigma=16.000000, C=1e-02 
++ Fold4.Rep1: sigma= 0.062500, C=1e+00 
+- Fold3.Rep1: sigma=16.000000, C=1e+01 
++ Fold4.Rep1: sigma= 0.062500, C=1e-04 
+- Fold4.Rep1: sigma= 0.062500, C=1e-03 
++ Fold4.Rep1: sigma= 4.000000, C=1e-02 
+- Fold4.Rep1: sigma= 0.015625, C=1e-04 
++ Fold4.Rep1: sigma= 1.000000, C=1e-03 
+- Fold4.Rep1: sigma= 4.000000, C=1e-04 
++ Fold4.Rep1: sigma= 0.015625, C=1e-02 
+- Fold3.Rep1: sigma= 1.000000, C=1e+02 
++ Fold4.Rep1: sigma= 0.003906, C=1e-03 
+- Fold3.Rep1: sigma= 0.015625, C=1e+02 
++ Fold4.Rep1: sigma= 1.000000, C=1e-04 
+- Fold3.Rep1: sigma= 0.003906, C=1e+01 
++ Fold3.Rep1: sigma= 0.250000, C=1e+02 
+- Fold4.Rep1: sigma=16.000000, C=1e-03 
++ Fold4.Rep1: sigma= 0.062500, C=1e-01 
+- Fold3.Rep1: sigma= 4.000000, C=1e+02 
++ Fold4.Rep1: sigma= 0.015625, C=1e-03 
+- Fold4.Rep1: sigma= 0.062500, C=1e+00 
++ Fold4.Rep1: sigma= 4.000000, C=1e+01 
+- Fold4.Rep1: sigma= 0.062500, C=1e-04 
++ Fold4.Rep1: sigma= 4.000000, C=1e-03 
+- Fold4.Rep1: sigma= 4.000000, C=1e-02 
++ Fold4.Rep1: sigma= 0.015625, C=1e+00 
+- Fold4.Rep1: sigma= 0.015625, C=1e-02 
++ Fold4.Rep1: sigma= 1.000000, C=1e-01 
+- Fold4.Rep1: sigma= 0.003906, C=1e-03 
+- Fold4.Rep1: sigma= 1.000000, C=1e-03 
++ Fold4.Rep1: sigma= 0.250000, C=1e-02 
++ Fold4.Rep1: sigma= 0.003906, C=1e-01 
+- Fold4.Rep1: sigma= 1.000000, C=1e-04 
++ Fold4.Rep1: sigma= 0.003906, C=1e-02 
+- Fold4.Rep1: sigma= 0.062500, C=1e-01 
++ Fold4.Rep1: sigma= 4.000000, C=1e+00 
+- Fold4.Rep1: sigma= 0.015625, C=1e+00 
++ Fold4.Rep1: sigma= 1.000000, C=1e+01 
+- Fold3.Rep1: sigma= 0.250000, C=1e+02 
++ Fold4.Rep1: sigma=16.000000, C=1e-04 
+- Fold4.Rep1: sigma= 0.015625, C=1e-03 
++ Fold4.Rep1: sigma= 1.000000, C=1e-02 
+- Fold4.Rep1: sigma= 4.000000, C=1e+01 
++ Fold5.Rep1: sigma= 0.015625, C=1e-04 
+- Fold4.Rep1: sigma= 4.000000, C=1e-03 
++ Fold4.Rep1: sigma= 0.015625, C=1e-01 
+- Fold4.Rep1: sigma= 0.003906, C=1e-02 
++ Fold4.Rep1: sigma= 0.250000, C=1e-01 
+- Fold4.Rep1: sigma= 4.000000, C=1e+00 
++ Fold4.Rep1: sigma= 0.015625, C=1e+02 
+- Fold4.Rep1: sigma= 0.003906, C=1e-01 
++ Fold4.Rep1: sigma= 0.250000, C=1e+00 
+- Fold4.Rep1: sigma= 1.000000, C=1e-01 
++ Fold4.Rep1: sigma= 0.003906, C=1e+01 
+- Fold4.Rep1: sigma= 0.250000, C=1e-02 
++ Fold4.Rep1: sigma=16.000000, C=1e-01 
+- Fold4.Rep1: sigma= 1.000000, C=1e+01 
++ Fold5.Rep1: sigma= 0.003906, C=1e-04 
+- Fold4.Rep1: sigma= 0.015625, C=1e+02 
++ Fold5.Rep1: sigma= 1.000000, C=1e-04 
+- Fold4.Rep1: sigma= 0.250000, C=1e-01 
++ Fold4.Rep1: sigma=16.000000, C=1e+00 
+- Fold4.Rep1: sigma= 0.015625, C=1e-01 
++ Fold4.Rep1: sigma= 1.000000, C=1e+00 
+- Fold4.Rep1: sigma=16.000000, C=1e-04 
++ Fold4.Rep1: sigma= 0.062500, C=1e-02 
+- Fold4.Rep1: sigma= 1.000000, C=1e-02 
++ Fold4.Rep1: sigma= 0.003906, C=1e+00 
+- Fold5.Rep1: sigma= 0.015625, C=1e-04 
++ Fold5.Rep1: sigma= 1.000000, C=1e-03 
+- Fold4.Rep1: sigma= 0.003906, C=1e+01 
++ Fold4.Rep1: sigma= 0.250000, C=1e+02 
+- Fold4.Rep1: sigma= 0.250000, C=1e+00 
++ Fold4.Rep1: sigma=16.000000, C=1e+01 
+- Fold4.Rep1: sigma=16.000000, C=1e+00 
++ Fold4.Rep1: sigma= 0.062500, C=1e+02 
+- Fold4.Rep1: sigma=16.000000, C=1e-01 
++ Fold4.Rep1: sigma= 0.062500, C=1e+01 
+- Fold5.Rep1: sigma= 0.003906, C=1e-04 
++ Fold5.Rep1: sigma= 0.250000, C=1e-03 
+- Fold5.Rep1: sigma= 1.000000, C=1e-04 
++ Fold5.Rep1: sigma= 0.003906, C=1e-02 
+- Fold4.Rep1: sigma= 0.003906, C=1e+00 
++ Fold4.Rep1: sigma= 0.250000, C=1e+01 
+- Fold4.Rep1: sigma= 1.000000, C=1e+00 
++ Fold4.Rep1: sigma= 0.003906, C=1e+02 
+- Fold4.Rep1: sigma= 0.062500, C=1e-02 
++ Fold4.Rep1: sigma= 4.000000, C=1e-01 
+- Fold5.Rep1: sigma= 1.000000, C=1e-03 
++ Fold5.Rep1: sigma= 0.003906, C=1e-01 
+- Fold4.Rep1: sigma= 0.062500, C=1e+02 
++ Fold5.Rep1: sigma= 4.000000, C=1e-04 
+- Fold5.Rep1: sigma= 0.250000, C=1e-03 
++ Fold5.Rep1: sigma=16.000000, C=1e-02 
+- Fold4.Rep1: sigma= 0.062500, C=1e+01 
++ Fold4.Rep1: sigma= 4.000000, C=1e+02 
+- Fold4.Rep1: sigma= 0.250000, C=1e+02 
++ Fold5.Rep1: sigma=16.000000, C=1e-04 
+- Fold4.Rep1: sigma=16.000000, C=1e+01 
++ Fold5.Rep1: sigma= 0.062500, C=1e-04 
+- Fold5.Rep1: sigma= 0.003906, C=1e-02 
++ Fold5.Rep1: sigma= 0.250000, C=1e-01 
+- Fold4.Rep1: sigma= 0.250000, C=1e+01 
++ Fold4.Rep1: sigma=16.000000, C=1e+02 
+- Fold4.Rep1: sigma= 0.003906, C=1e+02 
++ Fold5.Rep1: sigma= 0.250000, C=1e-04 
+- Fold4.Rep1: sigma= 4.000000, C=1e-01 
++ Fold4.Rep1: sigma= 0.015625, C=1e+01 
+- Fold5.Rep1: sigma=16.000000, C=1e-02 
++ Fold5.Rep1: sigma= 0.062500, C=1e+00 
+- Fold5.Rep1: sigma= 0.003906, C=1e-01 
++ Fold5.Rep1: sigma= 0.250000, C=1e+00 
+- Fold4.Rep1: sigma= 4.000000, C=1e+02 
++ Fold5.Rep1: sigma= 0.015625, C=1e-03 
+- Fold5.Rep1: sigma= 4.000000, C=1e-04 
++ Fold5.Rep1: sigma= 0.015625, C=1e-02 
+- Fold4.Rep1: sigma= 0.015625, C=1e+01 
++ Fold4.Rep1: sigma= 1.000000, C=1e+02 
+- Fold5.Rep1: sigma=16.000000, C=1e-04 
++ Fold5.Rep1: sigma= 0.062500, C=1e-02 
+- Fold5.Rep1: sigma= 0.062500, C=1e+00 
++ Fold5.Rep1: sigma= 4.000000, C=1e+01 
+- Fold5.Rep1: sigma= 0.062500, C=1e-04 
++ Fold5.Rep1: sigma= 4.000000, C=1e-03 
+- Fold5.Rep1: sigma= 0.250000, C=1e-01 
++ Fold5.Rep1: sigma=16.000000, C=1e+00 
+- Fold5.Rep1: sigma= 0.015625, C=1e-03 
++ Fold5.Rep1: sigma= 1.000000, C=1e-02 
+- Fold4.Rep1: sigma=16.000000, C=1e+02 
++ Fold5.Rep1: sigma= 0.062500, C=1e-03 
+- Fold5.Rep1: sigma= 0.250000, C=1e-04 
++ Fold5.Rep1: sigma=16.000000, C=1e-03 
+- Fold5.Rep1: sigma= 0.250000, C=1e+00 
++ Fold5.Rep1: sigma=16.000000, C=1e+01 
+- Fold5.Rep1: sigma= 4.000000, C=1e+01 
+- Fold5.Rep1: sigma= 0.015625, C=1e-02 
++ Fold5.Rep1: sigma= 1.000000, C=1e-01 
+- Fold4.Rep1: sigma= 1.000000, C=1e+02 
++ Fold5.Rep1: sigma= 0.003906, C=1e-03 
+- Fold5.Rep1: sigma= 0.062500, C=1e-02 
++ Fold5.Rep1: sigma= 4.000000, C=1e-01 
+- Fold5.Rep1: sigma= 1.000000, C=1e-02 
++ Fold5.Rep1: sigma= 0.003906, C=1e+00 
+- Fold5.Rep1: sigma=16.000000, C=1e+00 
++ Fold5.Rep1: sigma= 0.062500, C=1e+02 
+- Fold5.Rep1: sigma= 4.000000, C=1e-03 
++ Fold5.Rep1: sigma= 0.015625, C=1e-01 
+- Fold5.Rep1: sigma= 0.062500, C=1e-03 
++ Fold5.Rep1: sigma= 4.000000, C=1e-02 
+- Fold5.Rep1: sigma=16.000000, C=1e-03 
++ Fold5.Rep1: sigma= 0.062500, C=1e-01 
+- Fold5.Rep1: sigma=16.000000, C=1e+01 
+- Fold5.Rep1: sigma= 0.003906, C=1e-03 
++ Fold5.Rep1: sigma= 0.250000, C=1e-02 
+- Fold5.Rep1: sigma= 0.062500, C=1e+02 
+- Fold5.Rep1: sigma= 1.000000, C=1e-01 
++ Fold5.Rep1: sigma= 0.003906, C=1e+01 
+- Fold5.Rep1: sigma= 0.003906, C=1e+00 
++ Fold5.Rep1: sigma= 0.250000, C=1e+01 
+- Fold5.Rep1: sigma= 4.000000, C=1e-01 
++ Fold5.Rep1: sigma= 0.015625, C=1e+01 
+- Fold5.Rep1: sigma= 0.062500, C=1e-01 
++ Fold5.Rep1: sigma= 4.000000, C=1e+00 
+- Fold5.Rep1: sigma= 0.015625, C=1e-01 
++ Fold5.Rep1: sigma= 1.000000, C=1e+00 
+- Fold5.Rep1: sigma= 4.000000, C=1e-02 
++ Fold5.Rep1: sigma= 0.015625, C=1e+00 
+- Fold5.Rep1: sigma= 0.250000, C=1e-02 
++ Fold5.Rep1: sigma=16.000000, C=1e-01 
+- Fold5.Rep1: sigma= 0.003906, C=1e+01 
++ Fold5.Rep1: sigma= 0.250000, C=1e+02 
+- Fold5.Rep1: sigma= 0.015625, C=1e+01 
++ Fold5.Rep1: sigma= 1.000000, C=1e+02 
+- Fold5.Rep1: sigma= 4.000000, C=1e+00 
++ Fold5.Rep1: sigma= 0.015625, C=1e+02 
+- Fold5.Rep1: sigma= 1.000000, C=1e+00 
++ Fold5.Rep1: sigma= 0.003906, C=1e+02 
+- Fold5.Rep1: sigma= 0.250000, C=1e+01 
++ Fold5.Rep1: sigma=16.000000, C=1e+02 
+- Fold5.Rep1: sigma=16.000000, C=1e-01 
++ Fold5.Rep1: sigma= 0.062500, C=1e+01 
+- Fold5.Rep1: sigma= 0.015625, C=1e+00 
++ Fold5.Rep1: sigma= 1.000000, C=1e+01 
+- Fold5.Rep1: sigma= 0.250000, C=1e+02 
+- Fold5.Rep1: sigma= 0.015625, C=1e+02 
+- Fold5.Rep1: sigma= 1.000000, C=1e+02 
+- Fold5.Rep1: sigma= 0.003906, C=1e+02 
+- Fold5.Rep1: sigma= 0.062500, C=1e+01 
++ Fold5.Rep1: sigma= 4.000000, C=1e+02 
+- Fold5.Rep1: sigma=16.000000, C=1e+02 
+- Fold5.Rep1: sigma= 1.000000, C=1e+01 
+- Fold5.Rep1: sigma= 4.000000, C=1e+02 
+Aggregating results
+Selecting tuning parameters
+Fitting C = 10, sigma = 0.00390625 on full training set
+A new version of Bioconductor is available after installing the most
+  recent version of R; see http://bioconductor.org/install
+Bioconductor version 2.11 (BiocInstaller 1.8.3), ?biocLite for help
+Loading required package: cluster
+Loading required package: foreach
+Loading required package: lattice
+Loading required package: methods
+Loading required package: plyr
+Loading required package: reshape2
+Loading required package: iterators
+Loading required package: parallel
++ Fold1.Rep1: mtry=  5 
++ Fold1.Rep1: mtry= 10 
++ Fold1.Rep1: mtry= 15 
++ Fold1.Rep1: mtry= 20 
++ Fold1.Rep1: mtry= 25 
++ Fold1.Rep1: mtry= 30 
++ Fold1.Rep1: mtry= 35 
++ Fold1.Rep1: mtry= 40 
++ Fold1.Rep1: mtry= 45 
++ Fold1.Rep1: mtry= 50 
+randomForest 4.6-7
+randomForest 4.6-7
+randomForest 4.6-7
+randomForest 4.6-7
+randomForest 4.6-7
+randomForest 4.6-7
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+randomForest 4.6-7
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+randomForest 4.6-7
+randomForest 4.6-7
+Type rfNews() to see new features/changes/bug fixes.
+Type rfNews() to see new features/changes/bug fixes.
+randomForest 4.6-7
+Type rfNews() to see new features/changes/bug fixes.
+- Fold1.Rep1: mtry=  5 
++ Fold1.Rep1: mtry= 55 
+- Fold1.Rep1: mtry= 10 
++ Fold1.Rep1: mtry= 60 
+- Fold1.Rep1: mtry= 15 
++ Fold1.Rep1: mtry= 65 
+- Fold1.Rep1: mtry= 20 
++ Fold1.Rep1: mtry= 70 
+- Fold1.Rep1: mtry= 30 
++ Fold1.Rep1: mtry= 80 
+- Fold1.Rep1: mtry= 25 
++ Fold1.Rep1: mtry= 75 
+- Fold1.Rep1: mtry= 35 
++ Fold1.Rep1: mtry= 85 
+- Fold1.Rep1: mtry= 40 
++ Fold1.Rep1: mtry= 90 
+- Fold1.Rep1: mtry= 45 
++ Fold1.Rep1: mtry= 95 
+- Fold1.Rep1: mtry= 50 
++ Fold1.Rep1: mtry=100 
+- Fold1.Rep1: mtry= 55 
++ Fold2.Rep1: mtry=  5 
+- Fold2.Rep1: mtry=  5 
++ Fold2.Rep1: mtry= 55 
+- Fold1.Rep1: mtry= 65 
++ Fold2.Rep1: mtry= 15 
+- Fold1.Rep1: mtry= 60 
++ Fold2.Rep1: mtry= 10 
+- Fold2.Rep1: mtry= 15 
++ Fold2.Rep1: mtry= 65 
+- Fold1.Rep1: mtry= 70 
++ Fold2.Rep1: mtry= 20 
+- Fold2.Rep1: mtry= 10 
++ Fold2.Rep1: mtry= 60 
+- Fold1.Rep1: mtry= 80 
++ Fold2.Rep1: mtry= 30 
+- Fold1.Rep1: mtry= 75 
++ Fold2.Rep1: mtry= 25 
+- Fold1.Rep1: mtry= 85 
++ Fold2.Rep1: mtry= 35 
+- Fold2.Rep1: mtry= 20 
++ Fold2.Rep1: mtry= 70 
+- Fold2.Rep1: mtry= 55 
++ Fold3.Rep1: mtry=  5 
+- Fold1.Rep1: mtry= 90 
++ Fold2.Rep1: mtry= 40 
+- Fold3.Rep1: mtry=  5 
++ Fold3.Rep1: mtry= 55 
+- Fold2.Rep1: mtry= 25 
++ Fold2.Rep1: mtry= 75 
+- Fold1.Rep1: mtry= 95 
++ Fold2.Rep1: mtry= 45 
+- Fold2.Rep1: mtry= 30 
++ Fold2.Rep1: mtry= 80 
+- Fold1.Rep1: mtry=100 
++ Fold2.Rep1: mtry= 50 
+- Fold2.Rep1: mtry= 65 
++ Fold3.Rep1: mtry= 15 
+- Fold2.Rep1: mtry= 35 
++ Fold2.Rep1: mtry= 85 
+- Fold2.Rep1: mtry= 60 
++ Fold3.Rep1: mtry= 10 
+- Fold3.Rep1: mtry= 10 
++ Fold3.Rep1: mtry= 60 
+- Fold3.Rep1: mtry= 15 
++ Fold3.Rep1: mtry= 65 
+- Fold2.Rep1: mtry= 40 
++ Fold2.Rep1: mtry= 90 
+- Fold2.Rep1: mtry= 45 
++ Fold2.Rep1: mtry= 95 
+- Fold2.Rep1: mtry= 70 
++ Fold3.Rep1: mtry= 20 
+- Fold2.Rep1: mtry= 50 
++ Fold2.Rep1: mtry=100 
+- Fold3.Rep1: mtry= 55 
++ Fold4.Rep1: mtry=  5 
+- Fold2.Rep1: mtry= 75 
++ Fold3.Rep1: mtry= 25 
+- Fold4.Rep1: mtry=  5 
++ Fold4.Rep1: mtry= 55 
+- Fold3.Rep1: mtry= 20 
++ Fold3.Rep1: mtry= 70 
+- Fold2.Rep1: mtry= 80 
++ Fold3.Rep1: mtry= 30 
+- Fold3.Rep1: mtry= 25 
++ Fold3.Rep1: mtry= 75 
+- Fold3.Rep1: mtry= 60 
++ Fold4.Rep1: mtry= 10 
+- Fold3.Rep1: mtry= 65 
++ Fold4.Rep1: mtry= 15 
+- Fold4.Rep1: mtry= 10 
++ Fold4.Rep1: mtry= 60 
+- Fold2.Rep1: mtry= 85 
++ Fold3.Rep1: mtry= 35 
+- Fold3.Rep1: mtry= 30 
++ Fold3.Rep1: mtry= 80 
+- Fold2.Rep1: mtry= 90 
++ Fold3.Rep1: mtry= 40 
+- Fold4.Rep1: mtry= 15 
++ Fold4.Rep1: mtry= 65 
+- Fold4.Rep1: mtry= 55 
++ Fold5.Rep1: mtry=  5 
+- Fold5.Rep1: mtry=  5 
++ Fold5.Rep1: mtry= 55 
+- Fold3.Rep1: mtry= 35 
++ Fold3.Rep1: mtry= 85 
+- Fold2.Rep1: mtry= 95 
++ Fold3.Rep1: mtry= 45 
+- Fold3.Rep1: mtry= 70 
++ Fold4.Rep1: mtry= 20 
+- Fold2.Rep1: mtry=100 
++ Fold3.Rep1: mtry= 50 
+- Fold3.Rep1: mtry= 40 
++ Fold3.Rep1: mtry= 90 
+- Fold3.Rep1: mtry= 75 
++ Fold4.Rep1: mtry= 25 
+- Fold4.Rep1: mtry= 60 
++ Fold5.Rep1: mtry= 10 
+- Fold4.Rep1: mtry= 20 
++ Fold4.Rep1: mtry= 70 
+- Fold5.Rep1: mtry= 10 
++ Fold5.Rep1: mtry= 60 
+- Fold3.Rep1: mtry= 45 
++ Fold3.Rep1: mtry= 95 
+- Fold3.Rep1: mtry= 80 
++ Fold4.Rep1: mtry= 30 
+- Fold4.Rep1: mtry= 65 
++ Fold5.Rep1: mtry= 15 
+- Fold5.Rep1: mtry= 55 
+- Fold4.Rep1: mtry= 25 
++ Fold4.Rep1: mtry= 75 
+- Fold3.Rep1: mtry= 50 
++ Fold3.Rep1: mtry=100 
+- Fold5.Rep1: mtry= 15 
++ Fold5.Rep1: mtry= 65 
+- Fold3.Rep1: mtry= 85 
++ Fold4.Rep1: mtry= 35 
+- Fold4.Rep1: mtry= 30 
++ Fold4.Rep1: mtry= 80 
+- Fold4.Rep1: mtry= 70 
++ Fold5.Rep1: mtry= 20 
+- Fold5.Rep1: mtry= 60 
+- Fold3.Rep1: mtry= 90 
++ Fold4.Rep1: mtry= 40 
+- Fold5.Rep1: mtry= 20 
++ Fold5.Rep1: mtry= 70 
+- Fold4.Rep1: mtry= 35 
++ Fold4.Rep1: mtry= 85 
+- Fold4.Rep1: mtry= 75 
++ Fold5.Rep1: mtry= 25 
+- Fold3.Rep1: mtry= 95 
++ Fold4.Rep1: mtry= 45 
+- Fold3.Rep1: mtry=100 
++ Fold4.Rep1: mtry= 50 
+- Fold5.Rep1: mtry= 65 
+- Fold4.Rep1: mtry= 40 
++ Fold4.Rep1: mtry= 90 
+- Fold4.Rep1: mtry= 80 
++ Fold5.Rep1: mtry= 30 
+- Fold5.Rep1: mtry= 25 
++ Fold5.Rep1: mtry= 75 
+- Fold5.Rep1: mtry= 30 
++ Fold5.Rep1: mtry= 80 
+- Fold4.Rep1: mtry= 50 
++ Fold4.Rep1: mtry=100 
+- Fold4.Rep1: mtry= 45 
++ Fold4.Rep1: mtry= 95 
+- Fold5.Rep1: mtry= 70 
+- Fold4.Rep1: mtry= 85 
++ Fold5.Rep1: mtry= 35 
+- Fold5.Rep1: mtry= 75 
+- Fold4.Rep1: mtry= 90 
++ Fold5.Rep1: mtry= 40 
+- Fold5.Rep1: mtry= 35 
++ Fold5.Rep1: mtry= 85 
+- Fold5.Rep1: mtry= 80 
+- Fold4.Rep1: mtry= 95 
++ Fold5.Rep1: mtry= 45 
+- Fold5.Rep1: mtry= 40 
++ Fold5.Rep1: mtry= 90 
+- Fold4.Rep1: mtry=100 
++ Fold5.Rep1: mtry= 50 
+- Fold5.Rep1: mtry= 85 
+- Fold5.Rep1: mtry= 45 
++ Fold5.Rep1: mtry= 95 
+- Fold5.Rep1: mtry= 50 
++ Fold5.Rep1: mtry=100 
+- Fold5.Rep1: mtry= 90 
+- Fold5.Rep1: mtry= 95 
+- Fold5.Rep1: mtry=100 
+Aggregating results
+Selecting tuning parameters
+Fitting mtry = 95 on full training set
+randomForest 4.6-7
+Type rfNews() to see new features/changes/bug fixes.
++ Fold1.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
++ Fold1.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
++ Fold1.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
++ Fold2.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
++ Fold2.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
++ Fold2.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
++ Fold3.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
++ Fold3.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
++ Fold3.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
++ Fold4.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: survival
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loading required package: splines
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Loaded gbm 2.1
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        3.2176            -nan     0.0400    0.1959
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        3.0734            -nan     0.0800    0.4230
+     1        3.2894            -nan     0.0400    0.2198
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     2        3.0105            -nan     0.0400    0.1957
+     1        3.0694            -nan     0.0400    0.2038
+     2        2.6673            -nan     0.0800    0.4197
+     2        3.0691            -nan     0.0400    0.2063
+     1        2.8697            -nan     0.0800    0.4152
+     3        2.8164            -nan     0.0400    0.1845
+     1        2.9792            -nan     0.0800    0.4421
+     2        2.8804            -nan     0.0400    0.1845
+     1        2.5602            -nan     0.1600    0.7756
+     1        2.4866            -nan     0.1600    0.7165
+     3        2.3307            -nan     0.0800    0.2921
+     1        2.6505            -nan     0.1600    0.8457
+     1        3.1830            -nan     0.0400    0.2169
+     4        2.6307            -nan     0.0400    0.1652
+     4        2.0496            -nan     0.0800    0.2643
+     3        2.8720            -nan     0.0400    0.1871
+     2        2.5161            -nan     0.0800    0.3604
+     2        2.6037            -nan     0.0800    0.3632
+     3        2.6974            -nan     0.0400    0.1708
+     2        2.0257            -nan     0.1600    0.5799
+     2        1.9502            -nan     0.1600    0.5681
+     2        1.9054            -nan     0.1600    0.5251
+     2        2.9667            -nan     0.0400    0.2033
+     5        2.4620            -nan     0.0400    0.1744
+     5        1.8071            -nan     0.0800    0.2175
+     4        2.6861            -nan     0.0400    0.1615
+     3        2.2028            -nan     0.0800    0.3088
+     6        2.3063            -nan     0.0400    0.1516
+     4        2.5256            -nan     0.0400    0.1540
+     3        2.2850            -nan     0.0800    0.3021
+     3        1.5171            -nan     0.1600    0.4112
+     3        1.4639            -nan     0.1600    0.4023
+     3        2.7733            -nan     0.0400    0.1937
+     3        1.5627            -nan     0.1600    0.4251
+     6        1.5822            -nan     0.0800    0.2108
+     5        2.3661            -nan     0.0400    0.1430
+     7        2.1615            -nan     0.0400    0.1385
+     5        2.5144            -nan     0.0400    0.1583
+     4        1.9357            -nan     0.0800    0.2428
+     4        1.9994            -nan     0.0800    0.2327
+     4        1.1810            -nan     0.1600    0.2770
+     4        1.1364            -nan     0.1600    0.2953
+     4        2.5932            -nan     0.0400    0.1824
+     4        1.2282            -nan     0.1600    0.2977
+     7        1.4081            -nan     0.0800    0.1746
+     6        2.2122            -nan     0.0400    0.1551
+     8        2.0256            -nan     0.0400    0.1333
+     6        2.3485            -nan     0.0400    0.1527
+     5        1.7149            -nan     0.0800    0.2216
+     7        2.0775            -nan     0.0400    0.1300
+     9        1.9013            -nan     0.0400    0.1185
+     5        1.7583            -nan     0.0800    0.2194
+     5        0.9278            -nan     0.1600    0.2390
+     5        0.9153            -nan     0.1600    0.1994
+     5        2.4260            -nan     0.0400    0.1449
+     5        0.9658            -nan     0.1600    0.2062
+     8        1.2470            -nan     0.0800    0.1443
+     8        1.9515            -nan     0.0400    0.1211
+    10        1.7854            -nan     0.0400    0.1095
+     7        2.1982            -nan     0.0400    0.1317
+     6        1.5181            -nan     0.0800    0.1755
+     6        0.7444            -nan     0.1600    0.1485
+     6        1.5566            -nan     0.0800    0.1899
+     9        1.1066            -nan     0.0800    0.1176
+     6        0.7432            -nan     0.1600    0.1659
+     6        2.2797            -nan     0.0400    0.1483
+     6        0.7782            -nan     0.1600    0.1650
+     9        1.8353            -nan     0.0400    0.1110
+     7        0.6160            -nan     0.1600    0.1107
+    10        0.9976            -nan     0.0800    0.0987
+     8        2.0628            -nan     0.0400    0.1271
+     7        1.3450            -nan     0.0800    0.1601
+     7        1.3757            -nan     0.0800    0.1639
+     7        2.1333            -nan     0.0400    0.1429
+     7        0.6352            -nan     0.1600    0.1184
+     7        0.6161            -nan     0.1600    0.1092
+    10        1.7270            -nan     0.0400    0.1009
+     8        0.5243            -nan     0.1600    0.0705
+     9        1.9317            -nan     0.0400    0.1218
+     8        1.1951            -nan     0.0800    0.1396
+     8        1.2249            -nan     0.0800    0.1523
+     9        0.4475            -nan     0.1600    0.0551
+     8        0.5291            -nan     0.1600    0.0873
+     8        2.0014            -nan     0.0400    0.1169
+     8        0.5166            -nan     0.1600    0.0751
+    10        0.3911            -nan     0.1600    0.0367
+    10        1.8157            -nan     0.0400    0.1175
+     9        1.0760            -nan     0.0800    0.1126
+     9        1.0984            -nan     0.0800    0.1134
+     9        0.4477            -nan     0.1600    0.0654
+     9        1.8822            -nan     0.0400    0.1173
+     9        0.4434            -nan     0.1600    0.0538
+    10        0.9716            -nan     0.0800    0.0954
+    10        0.9826            -nan     0.0800    0.0947
+    10        0.3831            -nan     0.1600    0.0427
+    10        1.7680            -nan     0.0400    0.1024
+    10        0.3837            -nan     0.1600    0.0322
+    20        0.3908            -nan     0.0800    0.0227
+    20        0.9878            -nan     0.0400    0.0542
+    20        0.9746            -nan     0.0400    0.0498
+    20        0.1607            -nan     0.1600    0.0008
+    20        0.1483            -nan     0.1600    0.0012
+    20        0.3864            -nan     0.0800    0.0228
+    20        1.0088            -nan     0.0400    0.0523
+    20        0.4010            -nan     0.0800    0.0177
+    20        0.9856            -nan     0.0400    0.0497
+    20        0.1475            -nan     0.1600   -0.0006
+    40        0.0600            -nan     0.1600   -0.0024
+    40        0.1431            -nan     0.0800   -0.0000
+    40        0.1456            -nan     0.0800    0.0002
+    40        0.3841            -nan     0.0400    0.0125
+    40        0.0648            -nan     0.1600   -0.0020
+    40        0.3999            -nan     0.0400    0.0110
+    40        0.3990            -nan     0.0400    0.0107
+    40        0.3848            -nan     0.0400    0.0117
+    40        0.1517            -nan     0.0800    0.0001
+    40        0.0547            -nan     0.1600   -0.0008
+    60        0.0823            -nan     0.0800   -0.0001
+    60        0.0278            -nan     0.1600   -0.0013
+    60        0.0333            -nan     0.1600   -0.0011
+    60        0.2084            -nan     0.0400    0.0032
+    60        0.0826            -nan     0.0800   -0.0010
+    60        0.2270            -nan     0.0400    0.0017
+    60        0.2038            -nan     0.0400    0.0028
+    60        0.0877            -nan     0.0800   -0.0006
+    60        0.2122            -nan     0.0400    0.0023
+    80        0.0525            -nan     0.0800   -0.0007
+    80        0.0150            -nan     0.1600   -0.0004
+    60        0.0258            -nan     0.1600   -0.0007
+    80        0.0189            -nan     0.1600   -0.0004
+    80        0.1377            -nan     0.0400   -0.0003
+    80        0.1331            -nan     0.0400    0.0002
+    80        0.1522            -nan     0.0400    0.0004
+    80        0.0547            -nan     0.0800   -0.0007
+   100        0.0342            -nan     0.0800   -0.0005
+   100        0.0084            -nan     0.1600   -0.0002
+    80        0.1385            -nan     0.0400    0.0002
+    80        0.0569            -nan     0.0800   -0.0007
+    80        0.0133            -nan     0.1600   -0.0003
+   100        0.0976            -nan     0.0400   -0.0002
+   100        0.0111            -nan     0.1600   -0.0004
+   100        0.0992            -nan     0.0400   -0.0003
+   100        0.1118            -nan     0.0400   -0.0003
+   120        0.0238            -nan     0.0800   -0.0004
+   120        0.0051            -nan     0.1600   -0.0003
+   100        0.0369            -nan     0.0800   -0.0005
+   100        0.0389            -nan     0.0800   -0.0007
+   100        0.1007            -nan     0.0400   -0.0001
+   120        0.0747            -nan     0.0400   -0.0002
+   100        0.0073            -nan     0.1600   -0.0002
+   120        0.0071            -nan     0.1600   -0.0002
+   140        0.0031            -nan     0.1600   -0.0002
+   120        0.0762            -nan     0.0400   -0.0005
+   120        0.0861            -nan     0.0400   -0.0002
+   140        0.0171            -nan     0.0800   -0.0001
+   140        0.0589            -nan     0.0400   -0.0001
+   120        0.0256            -nan     0.0800   -0.0004
+   120        0.0270            -nan     0.0800   -0.0003
+   120        0.0771            -nan     0.0400   -0.0006
+   160        0.0020            -nan     0.1600   -0.0001
+   140        0.0692            -nan     0.0400   -0.0004
+   120        0.0042            -nan     0.1600   -0.0002
+   140        0.0609            -nan     0.0400   -0.0006
+   160        0.0477            -nan     0.0400   -0.0002
+   140        0.0049            -nan     0.1600   -0.0001
+   160        0.0123            -nan     0.0800   -0.0002
+   140        0.0186            -nan     0.0800   -0.0003
+   140        0.0609            -nan     0.0400   -0.0002
+   180        0.0013            -nan     0.1600   -0.0001
+   140        0.0192            -nan     0.0800   -0.0003
+   160        0.0562            -nan     0.0400   -0.0001
+   180        0.0386            -nan     0.0400   -0.0001
+   140        0.0024            -nan     0.1600   -0.0001
+   160        0.0492            -nan     0.0400   -0.0003
+   160        0.0035            -nan     0.1600   -0.0001
+   160        0.0486            -nan     0.0400   -0.0003
+   180        0.0091            -nan     0.0800   -0.0001
+   160        0.0134            -nan     0.0800   -0.0002
+   200        0.0009            -nan     0.1600   -0.0000
+   200        0.0318            -nan     0.0400   -0.0001
+   160        0.0141            -nan     0.0800   -0.0003
+   180        0.0457            -nan     0.0400   -0.0004
+   180        0.0397            -nan     0.0400   -0.0002
+   160        0.0015            -nan     0.1600   -0.0001
+   180        0.0406            -nan     0.0400   -0.0004
+   200        0.0069            -nan     0.0800   -0.0001
+   180        0.0025            -nan     0.1600   -0.0000
+   220        0.0268            -nan     0.0400   -0.0002
+   180        0.0098            -nan     0.0800   -0.0001
+   220        0.0006            -nan     0.1600   -0.0000
+   200        0.0328            -nan     0.0400   -0.0001
+   180        0.0105            -nan     0.0800   -0.0001
+   200        0.0381            -nan     0.0400   -0.0002
+   220        0.0052            -nan     0.0800   -0.0001
+   180        0.0010            -nan     0.1600   -0.0000
+   200        0.0337            -nan     0.0400   -0.0003
+   220        0.0273            -nan     0.0400   -0.0002
+   200        0.0019            -nan     0.1600   -0.0000
+   240        0.0224            -nan     0.0400   -0.0002
+   200        0.0075            -nan     0.0800   -0.0001
+   240        0.0005            -nan     0.1600   -0.0000
+   240        0.0040            -nan     0.0800   -0.0001
+   200        0.0080            -nan     0.0800   -0.0001
+   220        0.0323            -nan     0.0400   -0.0003
+   200        0.0006            -nan     0.1600   -0.0000
+   240        0.0229            -nan     0.0400   -0.0001
+   220        0.0282            -nan     0.0400   -0.0002
+   220        0.0014            -nan     0.1600   -0.0000
+   260        0.0189            -nan     0.0400   -0.0001
+   260        0.0031            -nan     0.0800   -0.0000
+   220        0.0058            -nan     0.0800   -0.0001
+   260        0.0003            -nan     0.1600   -0.0000
+   220        0.0062            -nan     0.0800   -0.0001
+   240        0.0270            -nan     0.0400   -0.0002
+   220        0.0004            -nan     0.1600   -0.0000
+   260        0.0194            -nan     0.0400   -0.0001
+   240        0.0011            -nan     0.1600   -0.0000
+   240        0.0239            -nan     0.0400   -0.0001
+   280        0.0159            -nan     0.0400   -0.0001
+   240        0.0045            -nan     0.0800   -0.0001
+   240        0.0049            -nan     0.0800   -0.0001
+   280        0.0025            -nan     0.0800   -0.0000
+   280        0.0003            -nan     0.1600   -0.0000
+   260        0.0009            -nan     0.1600   -0.0000
+   240        0.0003            -nan     0.1600   -0.0000
+   260        0.0228            -nan     0.0400   -0.0002
+   260        0.0035            -nan     0.0800   -0.0001
+   280        0.0165            -nan     0.0400   -0.0001
+   260        0.0202            -nan     0.0400   -0.0002
+   300        0.0137            -nan     0.0400   -0.0002
+   260        0.0037            -nan     0.0800   -0.0001
+   280        0.0008            -nan     0.1600   -0.0000
+   280        0.0027            -nan     0.0800   -0.0001
+   300        0.0002            -nan     0.1600   -0.0000
+   300        0.0020            -nan     0.0800   -0.0000
+   260        0.0002            -nan     0.1600   -0.0000
+   280        0.0194            -nan     0.0400   -0.0001
+   300        0.0142            -nan     0.0400   -0.0001
+   320        0.0118            -nan     0.0400   -0.0001
+   280        0.0176            -nan     0.0400   -0.0002
+   300        0.0006            -nan     0.1600   -0.0000
+   300        0.0022            -nan     0.0800   -0.0000
+   280        0.0030            -nan     0.0800   -0.0001
+   320        0.0002            -nan     0.1600   -0.0000
+   320        0.0016            -nan     0.0800   -0.0000
+   280        0.0002            -nan     0.1600   -0.0000
+   340        0.0101            -nan     0.0400   -0.0001
+   300        0.0167            -nan     0.0400   -0.0001
+   320        0.0122            -nan     0.0400   -0.0001
+   300        0.0151            -nan     0.0400   -0.0001
+   320        0.0005            -nan     0.1600   -0.0000
+   320        0.0018            -nan     0.0800   -0.0000
+   300        0.0024            -nan     0.0800   -0.0001
+   360        0.0087            -nan     0.0400   -0.0001
+   340        0.0001            -nan     0.1600   -0.0000
+   340        0.0013            -nan     0.0800   -0.0000
+   300        0.0001            -nan     0.1600   -0.0000
+   320        0.0144            -nan     0.0400   -0.0001
+   340        0.0106            -nan     0.0400   -0.0001
+   320        0.0019            -nan     0.0800   -0.0000
+   320        0.0132            -nan     0.0400   -0.0001
+   380        0.0075            -nan     0.0400   -0.0000
+   340        0.0004            -nan     0.1600   -0.0000
+   340        0.0015            -nan     0.0800   -0.0000
+   360        0.0001            -nan     0.1600   -0.0000
+   360        0.0010            -nan     0.0800   -0.0000
+   340        0.0016            -nan     0.0800   -0.0000
+   320        0.0001            -nan     0.1600   -0.0000
+   400        0.0065            -nan     0.0400   -0.0000
+   340        0.0126            -nan     0.0400   -0.0001
+   360        0.0093            -nan     0.0400   -0.0001
+   340        0.0115            -nan     0.0400   -0.0001
+   360        0.0004            -nan     0.1600   -0.0000
+   360        0.0012            -nan     0.0800   -0.0000
+   360        0.0013            -nan     0.0800   -0.0000
+   420        0.0057            -nan     0.0400   -0.0001
+   380        0.0009            -nan     0.0800   -0.0000
+   380        0.0001            -nan     0.1600   -0.0000
+   340        0.0001            -nan     0.1600   -0.0000
+   360        0.0109            -nan     0.0400   -0.0001
+   360        0.0099            -nan     0.0400   -0.0001
+   380        0.0080            -nan     0.0400   -0.0001
+   380        0.0011            -nan     0.0800   -0.0000
+   440        0.0050            -nan     0.0400   -0.0000
+   400        0.0007            -nan     0.0800   -0.0000
+   380        0.0010            -nan     0.0800   -0.0000
+   380        0.0003            -nan     0.1600   -0.0000
+   400        0.0001            -nan     0.1600   -0.0000
+   360        0.0001            -nan     0.1600   -0.0000
+   380        0.0086            -nan     0.0400   -0.0001
+   380        0.0095            -nan     0.0400   -0.0001
+   400        0.0071            -nan     0.0400   -0.0001
+   460        0.0044            -nan     0.0400   -0.0001
+   400        0.0008            -nan     0.0800   -0.0000
+   420        0.0006            -nan     0.0800   -0.0000
+   400        0.0009            -nan     0.0800   -0.0000
+   380        0.0001            -nan     0.1600   -0.0000
+   400        0.0002            -nan     0.1600   -0.0000
+   400        0.0076            -nan     0.0400   -0.0001
+   420        0.0001            -nan     0.1600   -0.0000
+   420        0.0007            -nan     0.0800   -0.0000
+   400        0.0083            -nan     0.0400   -0.0001
+   420        0.0063            -nan     0.0400   -0.0001
+   440        0.0005            -nan     0.0800   -0.0000
+   420        0.0007            -nan     0.0800   -0.0000
+   480        0.0039            -nan     0.0400   -0.0000
+   420        0.0067            -nan     0.0400   -0.0000
+   400        0.0001            -nan     0.1600   -0.0000
+   440        0.0006            -nan     0.0800   -0.0000
+   420        0.0002            -nan     0.1600   -0.0000
+   460        0.0004            -nan     0.0800   -0.0000
+   440        0.0001            -nan     0.1600   -0.0000
+   440        0.0060            -nan     0.0400   -0.0000
+   420        0.0073            -nan     0.0400   -0.0001
+   440        0.0055            -nan     0.0400   -0.0000
+   440        0.0006            -nan     0.0800   -0.0000
+   460        0.0005            -nan     0.0800   -0.0000
+   420        0.0001            -nan     0.1600   -0.0000
+   500        0.0034            -nan     0.0400   -0.0000
+   460        0.0053            -nan     0.0400   -0.0001
+   440        0.0002            -nan     0.1600   -0.0000
+   480        0.0004            -nan     0.0800   -0.0000
+   480        0.0004            -nan     0.0800   -0.0000
+   440        0.0064            -nan     0.0400   -0.0000
+   460        0.0001            -nan     0.1600   -0.0000
+   440        0.0001            -nan     0.1600   -0.0000
+   460        0.0005            -nan     0.0800   -0.0000
+   460        0.0049            -nan     0.0400   -0.0000
+   480        0.0047            -nan     0.0400   -0.0000
+   520        0.0031            -nan     0.0400   -0.0000
+   500        0.0004            -nan     0.0800   -0.0000
+   460        0.0001            -nan     0.1600   -0.0000
+   500        0.0003            -nan     0.0800   -0.0000
+   460        0.0001            -nan     0.1600   -0.0000
+   500        0.0042            -nan     0.0400   -0.0000
+   460        0.0056            -nan     0.0400   -0.0000
+   480        0.0001            -nan     0.1600   -0.0000
+   480        0.0004            -nan     0.0800   -0.0000
+   480        0.0044            -nan     0.0400   -0.0000
+   540        0.0027            -nan     0.0400   -0.0000
+   520        0.0004            -nan     0.0800   -0.0000
+   480        0.0001            -nan     0.1600   -0.0000
+   520        0.0003            -nan     0.0800   -0.0000
+   520        0.0037            -nan     0.0400   -0.0000
+   500        0.0004            -nan     0.0800   -0.0000
+   480        0.0001            -nan     0.1600   -0.0000
+   480        0.0050            -nan     0.0400   -0.0000
+   540        0.0003            -nan     0.0800   -0.0000
+   500        0.0001            -nan     0.1600   -0.0000
+   500        0.0039            -nan     0.0400   -0.0000
+   560        0.0024            -nan     0.0400   -0.0000
+   540        0.0002            -nan     0.0800   -0.0000
+   520        0.0003            -nan     0.0800   -0.0000
+   500        0.0001            -nan     0.1600   -0.0000
+   540        0.0034            -nan     0.0400   -0.0000
+   560        0.0003            -nan     0.0800   -0.0000
+   500        0.0044            -nan     0.0400   -0.0000
+   500        0.0001            -nan     0.1600   -0.0000
+   520        0.0035            -nan     0.0400   -0.0000
+   520        0.0001            -nan     0.1600   -0.0000
+   580        0.0022            -nan     0.0400   -0.0000
+   540        0.0003            -nan     0.0800   -0.0000
+   560        0.0030            -nan     0.0400   -0.0000
+   560        0.0002            -nan     0.0800   -0.0000
+   580        0.0002            -nan     0.0800   -0.0000
+   520        0.0001            -nan     0.1600   -0.0000
+   520        0.0040            -nan     0.0400   -0.0000
+   520        0.0001            -nan     0.1600   -0.0000
+   580        0.0028            -nan     0.0400   -0.0000
+   560        0.0002            -nan     0.0800   -0.0000
+   540        0.0032            -nan     0.0400   -0.0000
+   540        0.0001            -nan     0.1600   -0.0000
+   600        0.0020            -nan     0.0400   -0.0000
+   600        0.0002            -nan     0.0800   -0.0000
+   580        0.0002            -nan     0.0800   -0.0000
+   600        0.0025            -nan     0.0400   -0.0000
+   580        0.0002            -nan     0.0800   -0.0000
+   540        0.0000            -nan     0.1600   -0.0000
+   540        0.0036            -nan     0.0400   -0.0000
+   540        0.0001            -nan     0.1600   -0.0000
+   560        0.0029            -nan     0.0400   -0.0000
+   560        0.0000            -nan     0.1600   -0.0000
+   620        0.0018            -nan     0.0400   -0.0000
+   620        0.0023            -nan     0.0400   -0.0000
+   600        0.0002            -nan     0.0800   -0.0000
+   620        0.0002            -nan     0.0800   -0.0000
+   600        0.0002            -nan     0.0800   -0.0000
+   560        0.0032            -nan     0.0400   -0.0000
+   560        0.0000            -nan     0.1600   -0.0000
+   640        0.0021            -nan     0.0400   -0.0000
+   620        0.0002            -nan     0.0800   -0.0000
+   560        0.0001            -nan     0.1600   -0.0000
+   580        0.0026            -nan     0.0400   -0.0000
+   580        0.0000            -nan     0.1600   -0.0000
+   640        0.0016            -nan     0.0400   -0.0000
+   640        0.0002            -nan     0.0800   -0.0000
+   620        0.0002            -nan     0.0800   -0.0000
+   640        0.0001            -nan     0.0800   -0.0000
+   580        0.0000            -nan     0.1600   -0.0000
+   660        0.0019            -nan     0.0400   -0.0000
+   580        0.0029            -nan     0.0400   -0.0000
+   660        0.0014            -nan     0.0400   -0.0000
+   580        0.0001            -nan     0.1600   -0.0000
+   600        0.0024            -nan     0.0400   -0.0000
+   600        0.0000            -nan     0.1600   -0.0000
+   640        0.0001            -nan     0.0800   -0.0000
+   660        0.0002            -nan     0.0800   -0.0000
+   660        0.0001            -nan     0.0800   -0.0000
+   680        0.0017            -nan     0.0400   -0.0000
+   600        0.0027            -nan     0.0400   -0.0000
+   600        0.0000            -nan     0.1600    0.0000
+   680        0.0013            -nan     0.0400   -0.0000
+   620        0.0022            -nan     0.0400   -0.0000
+   600        0.0000            -nan     0.1600   -0.0000
+   680        0.0002            -nan     0.0800   -0.0000
+   680        0.0001            -nan     0.0800   -0.0000
+   620        0.0000            -nan     0.1600   -0.0000
+   660        0.0001            -nan     0.0800   -0.0000
+   700        0.0016            -nan     0.0400   -0.0000
+   620        0.0024            -nan     0.0400   -0.0000
+   700        0.0001            -nan     0.0800   -0.0000
+   700        0.0001            -nan     0.0800   -0.0000
+   620        0.0000            -nan     0.1600   -0.0000
+   700        0.0012            -nan     0.0400   -0.0000
+   640        0.0020            -nan     0.0400   -0.0000
+   620        0.0000            -nan     0.1600   -0.0000
+   640        0.0000            -nan     0.1600   -0.0000
+   720        0.0001            -nan     0.0800   -0.0000
+   720        0.0001            -nan     0.0800   -0.0000
+   680        0.0001            -nan     0.0800   -0.0000
+   720        0.0014            -nan     0.0400   -0.0000
+   640        0.0022            -nan     0.0400   -0.0000
+   640        0.0000            -nan     0.1600   -0.0000
+   720        0.0011            -nan     0.0400   -0.0000
+   660        0.0018            -nan     0.0400   -0.0000
+   740        0.0001            -nan     0.0800   -0.0000
+   660        0.0000            -nan     0.1600   -0.0000
+   640        0.0000            -nan     0.1600   -0.0000
+   740        0.0001            -nan     0.0800   -0.0000
+   660        0.0000            -nan     0.1600   -0.0000
+   700        0.0001            -nan     0.0800   -0.0000
+   740        0.0013            -nan     0.0400   -0.0000
+   660        0.0020            -nan     0.0400   -0.0000
+   740        0.0010            -nan     0.0400   -0.0000
+   760        0.0001            -nan     0.0800   -0.0000
+   680        0.0000            -nan     0.1600   -0.0000
+   680        0.0016            -nan     0.0400   -0.0000
+   660        0.0000            -nan     0.1600   -0.0000
+   760        0.0001            -nan     0.0800   -0.0000
+   760        0.0012            -nan     0.0400   -0.0000
+   680        0.0000            -nan     0.1600   -0.0000
+   680        0.0018            -nan     0.0400   -0.0000
+   720        0.0001            -nan     0.0800   -0.0000
+   700        0.0000            -nan     0.1600   -0.0000
+   680        0.0000            -nan     0.1600   -0.0000
+   760        0.0009            -nan     0.0400   -0.0000
+   700        0.0015            -nan     0.0400   -0.0000
+   780        0.0001            -nan     0.0800   -0.0000
+   780        0.0001            -nan     0.0800   -0.0000
+   780        0.0011            -nan     0.0400   -0.0000
+   740        0.0001            -nan     0.0800   -0.0000
+   700        0.0000            -nan     0.1600   -0.0000
+   700        0.0017            -nan     0.0400   -0.0000
+   720        0.0000            -nan     0.1600   -0.0000
+   700        0.0000            -nan     0.1600   -0.0000
+   780        0.0008            -nan     0.0400   -0.0000
+   800        0.0001            -nan     0.0800   -0.0000
+   720        0.0014            -nan     0.0400   -0.0000
+   800        0.0001            -nan     0.0800   -0.0000
+   800        0.0010            -nan     0.0400   -0.0000
+   760        0.0001            -nan     0.0800   -0.0000
+   720        0.0000            -nan     0.1600   -0.0000
+   720        0.0015            -nan     0.0400   -0.0000
+   720        0.0000            -nan     0.1600   -0.0000
+   740        0.0000            -nan     0.1600   -0.0000
+   740        0.0013            -nan     0.0400   -0.0000
+   820        0.0001            -nan     0.0800   -0.0000
+   800        0.0007            -nan     0.0400   -0.0000
+   820        0.0001            -nan     0.0800   -0.0000
+   820        0.0010            -nan     0.0400   -0.0000
+   780        0.0001            -nan     0.0800   -0.0000
+   740        0.0000            -nan     0.1600   -0.0000
+   740        0.0000            -nan     0.1600   -0.0000
+   740        0.0014            -nan     0.0400   -0.0000
+   760        0.0012            -nan     0.0400   -0.0000
+   760        0.0000            -nan     0.1600   -0.0000
+   840        0.0000            -nan     0.0800   -0.0000
+   820        0.0007            -nan     0.0400   -0.0000
+   840        0.0001            -nan     0.0800   -0.0000
+   840        0.0009            -nan     0.0400   -0.0000
+   800        0.0001            -nan     0.0800   -0.0000
+   780        0.0011            -nan     0.0400   -0.0000
+   760        0.0000            -nan     0.1600   -0.0000
+   760        0.0013            -nan     0.0400   -0.0000
+   760        0.0000            -nan     0.1600   -0.0000
+   860        0.0000            -nan     0.0800   -0.0000
+   840        0.0006            -nan     0.0400   -0.0000
+   780        0.0000            -nan     0.1600   -0.0000
+   860        0.0001            -nan     0.0800   -0.0000
+   820        0.0001            -nan     0.0800   -0.0000
+   860        0.0008            -nan     0.0400   -0.0000
+   780        0.0000            -nan     0.1600   -0.0000
+   800        0.0010            -nan     0.0400   -0.0000
+   780        0.0000            -nan     0.1600   -0.0000
+   780        0.0012            -nan     0.0400   -0.0000
+   860        0.0006            -nan     0.0400   -0.0000
+   880        0.0000            -nan     0.0800   -0.0000
+   800        0.0000            -nan     0.1600   -0.0000
+   880        0.0001            -nan     0.0800   -0.0000
+   880        0.0008            -nan     0.0400   -0.0000
+   840        0.0001            -nan     0.0800   -0.0000
+   800        0.0000            -nan     0.1600   -0.0000
+   820        0.0010            -nan     0.0400   -0.0000
+   800        0.0011            -nan     0.0400   -0.0000
+   800        0.0000            -nan     0.1600   -0.0000
+   880        0.0005            -nan     0.0400   -0.0000
+   820        0.0000            -nan     0.1600   -0.0000
+   900        0.0000            -nan     0.0800   -0.0000
+   900        0.0001            -nan     0.0800   -0.0000
+   900        0.0007            -nan     0.0400   -0.0000
+   860        0.0001            -nan     0.0800   -0.0000
+   820        0.0010            -nan     0.0400   -0.0000
+   900        0.0005            -nan     0.0400   -0.0000
+   820        0.0000            -nan     0.1600   -0.0000
+   820        0.0000            -nan     0.1600   -0.0000
+   840        0.0009            -nan     0.0400   -0.0000
+   840        0.0000            -nan     0.1600   -0.0000
+   920        0.0000            -nan     0.0800   -0.0000
+   920        0.0005            -nan     0.0400   -0.0000
+   920        0.0001            -nan     0.0800   -0.0000
+   840        0.0000            -nan     0.1600   -0.0000
+   920        0.0007            -nan     0.0400   -0.0000
+   840        0.0009            -nan     0.0400   -0.0000
+   880        0.0001            -nan     0.0800   -0.0000
+   860        0.0009            -nan     0.0400   -0.0000
+   840        0.0000            -nan     0.1600   -0.0000
+   940        0.0004            -nan     0.0400   -0.0000
+   860        0.0000            -nan     0.1600   -0.0000
+   860        0.0000            -nan     0.1600   -0.0000
+   940        0.0000            -nan     0.0800   -0.0000
+   940        0.0001            -nan     0.0800   -0.0000
+   860        0.0008            -nan     0.0400   -0.0000
+   940        0.0006            -nan     0.0400   -0.0000
+   900        0.0001            -nan     0.0800   -0.0000
+   880        0.0008            -nan     0.0400   -0.0000
+   960        0.0004            -nan     0.0400   -0.0000
+   880        0.0000            -nan     0.1600   -0.0000
+   860        0.0000            -nan     0.1600   -0.0000
+   880        0.0008            -nan     0.0400   -0.0000
+   880        0.0000            -nan     0.1600   -0.0000
+   960        0.0001            -nan     0.0800   -0.0000
+   960        0.0000            -nan     0.0800   -0.0000
+   960        0.0006            -nan     0.0400   -0.0000
+   920        0.0001            -nan     0.0800   -0.0000
+   880        0.0000            -nan     0.1600   -0.0000
+   900        0.0000            -nan     0.1600   -0.0000
+   900        0.0007            -nan     0.0400   -0.0000
+   980        0.0004            -nan     0.0400   -0.0000
+   900        0.0007            -nan     0.0400   -0.0000
+   980        0.0001            -nan     0.0800   -0.0000
+   980        0.0000            -nan     0.0800   -0.0000
+   900        0.0000            -nan     0.1600   -0.0000
+   920        0.0000            -nan     0.1600   -0.0000
+   980        0.0005            -nan     0.0400   -0.0000
+   900        0.0000            -nan     0.1600   -0.0000
+   940        0.0001            -nan     0.0800   -0.0000
+   920        0.0007            -nan     0.0400   -0.0000
+  1000        0.0003            -nan     0.0400   -0.0000
+
+predictions failed for Fold3.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold3.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
+   920        0.0007            -nan     0.0400   -0.0000
+   920        0.0000            -nan     0.1600   -0.0000
+   920        0.0000            -nan     0.1600   -0.0000
+  1000        0.0001            -nan     0.0800   -0.0000
+
+predictions failed for Fold1.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold1.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
++ Fold4.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+   940        0.0000            -nan     0.1600   -0.0000
+  1000        0.0000            -nan     0.0800   -0.0000
+
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        2.5656            -nan     0.1600    0.7864
+predictions failed for Fold2.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold2.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
++ Fold5.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+  1000        0.0005            -nan     0.0400   -0.0000
+
+     2        1.9425            -nan     0.1600    0.5831
+     3        1.5046            -nan     0.1600    0.4120
+     4        1.1683            -nan     0.1600    0.3332
+predictions failed for Fold4.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold4.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
+     5        0.9389            -nan     0.1600    0.1921
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     6        0.7529            -nan     0.1600    0.1571
+     1        2.6510            -nan     0.1600    0.9200
+     7        0.6207            -nan     0.1600    0.1181
+     2        2.0291            -nan     0.1600    0.5815
+     8        0.5140            -nan     0.1600    0.0836
+     3        1.5729            -nan     0.1600    0.4580
+   960        0.0001            -nan     0.0800   -0.0000
+   940        0.0007            -nan     0.0400   -0.0000
+     9        0.4373            -nan     0.1600    0.0623
+     4        1.2176            -nan     0.1600    0.3376
+    10        0.3766            -nan     0.1600    0.0416
+     5        0.9680            -nan     0.1600    0.2051
+     6        0.7815            -nan     0.1600    0.1474
+   940        0.0006            -nan     0.0400   -0.0000
+     7        0.6471            -nan     0.1600    0.1184
+     8        0.5405            -nan     0.1600    0.0864
+   940        0.0000            -nan     0.1600   -0.0000
+     9        0.4604            -nan     0.1600    0.0588
+   940        0.0000            -nan     0.1600   -0.0000
+    10        0.4055            -nan     0.1600    0.0457
+   960        0.0000            -nan     0.1600    0.0000
+    20        0.1529            -nan     0.1600   -0.0007
+   960        0.0006            -nan     0.0400   -0.0000
+    20        0.1690            -nan     0.1600   -0.0000
+   980        0.0001            -nan     0.0800   -0.0000
+   960        0.0000            -nan     0.1600   -0.0000
+   960        0.0006            -nan     0.0400   -0.0000
+    40        0.0614            -nan     0.1600   -0.0012
+   960        0.0000            -nan     0.1600   -0.0000
+   980        0.0006            -nan     0.0400   -0.0000
+   980        0.0000            -nan     0.1600   -0.0000
+  1000        0.0001            -nan     0.0800   -0.0000
+
+predictions failed for Fold3.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold3.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
+   980        0.0006            -nan     0.0400   -0.0000
+    40        0.0707            -nan     0.1600   -0.0029
+    60        0.0300            -nan     0.1600   -0.0009
+   980        0.0000            -nan     0.1600   -0.0000
+   980        0.0000            -nan     0.1600   -0.0000
+    60        0.0350            -nan     0.1600   -0.0010
+    80        0.0165            -nan     0.1600   -0.0006
+  1000        0.0005            -nan     0.0400   -0.0000
+
+predictions failed for Fold2.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold2.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
++ Fold5.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
+  1000        0.0000            -nan     0.1600   -0.0000
+
+predictions failed for Fold2.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold2.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+  1000        0.0005            -nan     0.0400   -0.0000
+
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     1        3.0727            -nan     0.0800    0.4521
+predictions failed for Fold1.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold1.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
++ Fold4.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
+  1000        0.0000            -nan     0.1600   -0.0000
+
+     2        2.6955            -nan     0.0800    0.3524
+     3        2.3573            -nan     0.0800    0.3229
+predictions failed for Fold3.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold3.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+     4        2.0615            -nan     0.0800    0.2748
+     5        1.8154            -nan     0.0800    0.2276
+     6        1.6059            -nan     0.0800    0.2010
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+  1000        0.0000            -nan     0.1600    0.0000
+
+     7        1.4224            -nan     0.0800    0.1728
+     1        3.0114            -nan     0.0800    0.4428
+     8        1.2700            -nan     0.0800    0.1422
+predictions failed for Fold1.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold1.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
++ Fold5.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
+     2        2.6251            -nan     0.0800    0.3817
+     9        1.1301            -nan     0.0800    0.1172
+     3        2.2893            -nan     0.0800    0.2988
+    10        1.0074            -nan     0.0800    0.1033
+     4        1.9991            -nan     0.0800    0.2685
+     5        1.7660            -nan     0.0800    0.2043
+Iter   TrainDeviance   ValidDeviance   StepSize   Improve
+     6        1.5621            -nan     0.0800    0.1891
+     1        3.2909            -nan     0.0400    0.2549
+     7        1.3771            -nan     0.0800    0.1668
+     2        3.0810            -nan     0.0400    0.2234
+     8        1.2249            -nan     0.0800    0.1344
+     3        2.8833            -nan     0.0400    0.1973
+     9        1.0880            -nan     0.0800    0.1296
+     4        2.6970            -nan     0.0400    0.1817
+    80        0.0190            -nan     0.1600   -0.0006
+    10        0.9779            -nan     0.0800    0.1014
+     5        2.5214            -nan     0.0400    0.1730
+     6        2.3583            -nan     0.0400    0.1630
+   100        0.0096            -nan     0.1600   -0.0003
+     7        2.2097            -nan     0.0400    0.1462
+     8        2.0702            -nan     0.0400    0.1317
+    20        0.3908            -nan     0.0800    0.0286
+     9        1.9436            -nan     0.0400    0.1156
+    10        1.8222            -nan     0.0400    0.1135
+    20        0.3813            -nan     0.0800    0.0211
+    20        1.0128            -nan     0.0400    0.0519
+   100        0.0110            -nan     0.1600   -0.0004
+   120        0.0057            -nan     0.1600   -0.0002
+    40        0.1449            -nan     0.0800    0.0016
+    40        0.1361            -nan     0.0800    0.0008
+    40        0.3948            -nan     0.0400    0.0113
+   120        0.0069            -nan     0.1600   -0.0003
+    60        0.0842            -nan     0.0800   -0.0011
+   140        0.0036            -nan     0.1600   -0.0001
+    60        0.0764            -nan     0.0800   -0.0003
+    60        0.2139            -nan     0.0400    0.0016
+   140        0.0046            -nan     0.1600   -0.0002
+    80        0.0559            -nan     0.0800   -0.0007
+   160        0.0023            -nan     0.1600   -0.0001
+    80        0.0494            -nan     0.0800   -0.0007
+    80        0.1416            -nan     0.0400    0.0003
+   160        0.0031            -nan     0.1600   -0.0001
+   180        0.0015            -nan     0.1600   -0.0001
+   100        0.0388            -nan     0.0800   -0.0007
+   100        0.0345            -nan     0.0800   -0.0005
+   100        0.1039            -nan     0.0400   -0.0004
+   180        0.0021            -nan     0.1600   -0.0001
+   200        0.0010            -nan     0.1600   -0.0000
+   120        0.0275            -nan     0.0800   -0.0003
+   120        0.0248            -nan     0.0800   -0.0003
+   120        0.0804            -nan     0.0400   -0.0005
+   200        0.0016            -nan     0.1600   -0.0000
+   220        0.0006            -nan     0.1600   -0.0000
+   140        0.0198            -nan     0.0800   -0.0003
+   140        0.0179            -nan     0.0800   -0.0003
+   140        0.0634            -nan     0.0400   -0.0004
+   220        0.0012            -nan     0.1600   -0.0000
+   240        0.0005            -nan     0.1600   -0.0000
+   160        0.0150            -nan     0.0800   -0.0002
+   160        0.0134            -nan     0.0800   -0.0002
+   160        0.0511            -nan     0.0400   -0.0003
+   240        0.0009            -nan     0.1600   -0.0000
+   260        0.0003            -nan     0.1600   -0.0000
+   180        0.0114            -nan     0.0800   -0.0001
+   180        0.0102            -nan     0.0800   -0.0001
+   180        0.0422            -nan     0.0400   -0.0001
+   260        0.0006            -nan     0.1600   -0.0000
+   280        0.0002            -nan     0.1600   -0.0000
+   200        0.0088            -nan     0.0800   -0.0001
+   200        0.0079            -nan     0.0800   -0.0001
+   200        0.0348            -nan     0.0400   -0.0004
+   280        0.0005            -nan     0.1600   -0.0000
+   300        0.0002            -nan     0.1600   -0.0000
+   220        0.0062            -nan     0.0800   -0.0001
+   220        0.0070            -nan     0.0800   -0.0001
+   220        0.0289            -nan     0.0400   -0.0003
+   300        0.0004            -nan     0.1600   -0.0000
+   320        0.0001            -nan     0.1600   -0.0000
+   240        0.0049            -nan     0.0800   -0.0001
+   240        0.0056            -nan     0.0800   -0.0001
+   240        0.0243            -nan     0.0400   -0.0002
+   260        0.0040            -nan     0.0800   -0.0000
+   260        0.0044            -nan     0.0800   -0.0001
+   320        0.0003            -nan     0.1600   -0.0000
+   340        0.0001            -nan     0.1600   -0.0000
+   260        0.0209            -nan     0.0400   -0.0002
+   280        0.0036            -nan     0.0800   -0.0001
+   280        0.0033            -nan     0.0800   -0.0001
+   340        0.0003            -nan     0.1600   -0.0000
+   360        0.0001            -nan     0.1600   -0.0000
+   280        0.0181            -nan     0.0400   -0.0002
+   300        0.0027            -nan     0.0800   -0.0000
+   300        0.0030            -nan     0.0800   -0.0000
+   360        0.0002            -nan     0.1600   -0.0000
+   380        0.0001            -nan     0.1600   -0.0000
+   300        0.0154            -nan     0.0400   -0.0001
+   320        0.0023            -nan     0.0800   -0.0000
+   320        0.0025            -nan     0.0800   -0.0001
+   380        0.0002            -nan     0.1600   -0.0000
+   400        0.0001            -nan     0.1600   -0.0000
+   320        0.0133            -nan     0.0400   -0.0001
+   340        0.0019            -nan     0.0800   -0.0000
+   340        0.0021            -nan     0.0800   -0.0001
+   420        0.0000            -nan     0.1600   -0.0000
+   400        0.0002            -nan     0.1600   -0.0000
+   340        0.0116            -nan     0.0400   -0.0001
+   360        0.0016            -nan     0.0800   -0.0000
+   360        0.0017            -nan     0.0800   -0.0000
+   440        0.0000            -nan     0.1600   -0.0000
+   420        0.0002            -nan     0.1600   -0.0000
+   360        0.0102            -nan     0.0400   -0.0001
+   380        0.0014            -nan     0.0800   -0.0000
+   380        0.0015            -nan     0.0800   -0.0000
+   380        0.0089            -nan     0.0400   -0.0001
+   440        0.0001            -nan     0.1600   -0.0000
+   460        0.0000            -nan     0.1600   -0.0000
+   400        0.0013            -nan     0.0800   -0.0000
+   400        0.0012            -nan     0.0800   -0.0000
+   400        0.0079            -nan     0.0400   -0.0001
+   460        0.0001            -nan     0.1600   -0.0000
+   480        0.0000            -nan     0.1600   -0.0000
+   420        0.0011            -nan     0.0800   -0.0000
+   420        0.0010            -nan     0.0800   -0.0000
+   420        0.0070            -nan     0.0400   -0.0001
+   500        0.0000            -nan     0.1600   -0.0000
+   480        0.0001            -nan     0.1600   -0.0000
+   440        0.0009            -nan     0.0800   -0.0000
+   440        0.0009            -nan     0.0800   -0.0000
+   440        0.0062            -nan     0.0400   -0.0001
+   520        0.0000            -nan     0.1600   -0.0000
+   500        0.0001            -nan     0.1600   -0.0000
+   460        0.0008            -nan     0.0800   -0.0000
+   460        0.0008            -nan     0.0800   -0.0000
+   460        0.0056            -nan     0.0400   -0.0001
+   540        0.0000            -nan     0.1600   -0.0000
+   520        0.0001            -nan     0.1600   -0.0000
+   480        0.0007            -nan     0.0800   -0.0000
+   480        0.0007            -nan     0.0800   -0.0000
+   480        0.0050            -nan     0.0400   -0.0000
+   560        0.0000            -nan     0.1600   -0.0000
+   540        0.0001            -nan     0.1600   -0.0000
+   500        0.0006            -nan     0.0800   -0.0000
+   500        0.0006            -nan     0.0800   -0.0000
+   500        0.0045            -nan     0.0400   -0.0000
+   580        0.0000            -nan     0.1600   -0.0000
+   560        0.0001            -nan     0.1600   -0.0000
+   520        0.0006            -nan     0.0800   -0.0000
+   520        0.0006            -nan     0.0800   -0.0000
+   520        0.0041            -nan     0.0400   -0.0000
+   600        0.0000            -nan     0.1600   -0.0000
+   580        0.0001            -nan     0.1600   -0.0000
+   540        0.0005            -nan     0.0800   -0.0000
+   540        0.0037            -nan     0.0400   -0.0000
+   540        0.0005            -nan     0.0800   -0.0000
+   620        0.0000            -nan     0.1600   -0.0000
+   600        0.0001            -nan     0.1600   -0.0000
+   560        0.0004            -nan     0.0800   -0.0000
+   560        0.0034            -nan     0.0400   -0.0000
+   560        0.0005            -nan     0.0800   -0.0000
+   640        0.0000            -nan     0.1600   -0.0000
+   620        0.0001            -nan     0.1600   -0.0000
+   580        0.0031            -nan     0.0400   -0.0000
+   580        0.0004            -nan     0.0800   -0.0000
+   580        0.0004            -nan     0.0800   -0.0000
+   660        0.0000            -nan     0.1600   -0.0000
+   640        0.0001            -nan     0.1600   -0.0000
+   600        0.0028            -nan     0.0400   -0.0000
+   600        0.0004            -nan     0.0800   -0.0000
+   600        0.0004            -nan     0.0800   -0.0000
+   680        0.0000            -nan     0.1600   -0.0000
+   660        0.0001            -nan     0.1600   -0.0000
+   620        0.0026            -nan     0.0400   -0.0000
+   620        0.0003            -nan     0.0800   -0.0000
+   620        0.0003            -nan     0.0800   -0.0000
+   700        0.0000            -nan     0.1600   -0.0000
+   680        0.0001            -nan     0.1600   -0.0000
+   640        0.0024            -nan     0.0400   -0.0000
+   640        0.0003            -nan     0.0800   -0.0000
+   640        0.0003            -nan     0.0800   -0.0000
+   720        0.0000            -nan     0.1600   -0.0000
+   700        0.0001            -nan     0.1600   -0.0000
+   660        0.0022            -nan     0.0400   -0.0000
+   660        0.0003            -nan     0.0800   -0.0000
+   660        0.0003            -nan     0.0800   -0.0000
+   740        0.0000            -nan     0.1600   -0.0000
+   680        0.0020            -nan     0.0400   -0.0000
+   720        0.0001            -nan     0.1600   -0.0000
+   680        0.0002            -nan     0.0800   -0.0000
+   680        0.0002            -nan     0.0800   -0.0000
+   760        0.0000            -nan     0.1600   -0.0000
+   700        0.0019            -nan     0.0400   -0.0000
+   740        0.0001            -nan     0.1600   -0.0000
+   700        0.0002            -nan     0.0800   -0.0000
+   700        0.0002            -nan     0.0800   -0.0000
+   780        0.0000            -nan     0.1600   -0.0000
+   720        0.0018            -nan     0.0400   -0.0000
+   760        0.0001            -nan     0.1600   -0.0000
+   720        0.0002            -nan     0.0800   -0.0000
+   720        0.0002            -nan     0.0800   -0.0000
+   800        0.0000            -nan     0.1600   -0.0000
+   740        0.0016            -nan     0.0400   -0.0000
+   740        0.0002            -nan     0.0800   -0.0000
+   780        0.0001            -nan     0.1600   -0.0000
+   740        0.0002            -nan     0.0800   -0.0000
+   760        0.0015            -nan     0.0400   -0.0000
+   820        0.0000            -nan     0.1600   -0.0000
+   760        0.0002            -nan     0.0800   -0.0000
+   760        0.0002            -nan     0.0800   -0.0000
+   800        0.0001            -nan     0.1600   -0.0000
+   780        0.0014            -nan     0.0400   -0.0000
+   840        0.0000            -nan     0.1600   -0.0000
+   780        0.0002            -nan     0.0800   -0.0000
+   780        0.0001            -nan     0.0800   -0.0000
+   820        0.0001            -nan     0.1600   -0.0000
+   800        0.0013            -nan     0.0400   -0.0000
+   860        0.0000            -nan     0.1600   -0.0000
+   800        0.0002            -nan     0.0800   -0.0000
+   800        0.0001            -nan     0.0800   -0.0000
+   840        0.0000            -nan     0.1600   -0.0000
+   820        0.0012            -nan     0.0400   -0.0000
+   880        0.0000            -nan     0.1600   -0.0000
+   820        0.0001            -nan     0.0800   -0.0000
+   820        0.0001            -nan     0.0800   -0.0000
+   860        0.0000            -nan     0.1600   -0.0000
+   840        0.0011            -nan     0.0400   -0.0000
+   900        0.0000            -nan     0.1600   -0.0000
+   840        0.0001            -nan     0.0800   -0.0000
+   840        0.0001            -nan     0.0800   -0.0000
+   880        0.0000            -nan     0.1600   -0.0000
+   860        0.0011            -nan     0.0400   -0.0000
+   920        0.0000            -nan     0.1600   -0.0000
+   860        0.0001            -nan     0.0800   -0.0000
+   860        0.0001            -nan     0.0800   -0.0000
+   900        0.0000            -nan     0.1600   -0.0000
+   880        0.0010            -nan     0.0400   -0.0000
+   940        0.0000            -nan     0.1600   -0.0000
+   880        0.0001            -nan     0.0800   -0.0000
+   880        0.0001            -nan     0.0800   -0.0000
+   920        0.0000            -nan     0.1600   -0.0000
+   900        0.0009            -nan     0.0400   -0.0000
+   960        0.0000            -nan     0.1600   -0.0000
+   900        0.0001            -nan     0.0800   -0.0000
+   900        0.0001            -nan     0.0800   -0.0000
+   940        0.0000            -nan     0.1600   -0.0000
+   920        0.0009            -nan     0.0400   -0.0000
+   980        0.0000            -nan     0.1600   -0.0000
+   920        0.0001            -nan     0.0800   -0.0000
+   920        0.0001            -nan     0.0800   -0.0000
+   960        0.0000            -nan     0.1600   -0.0000
+   940        0.0008            -nan     0.0400   -0.0000
+  1000        0.0000            -nan     0.1600   -0.0000
+
+predictions failed for Fold4.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold4.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+   940        0.0001            -nan     0.0800   -0.0000
+   940        0.0001            -nan     0.0800   -0.0000
+   960        0.0008            -nan     0.0400   -0.0000
+   980        0.0000            -nan     0.1600   -0.0000
+   960        0.0001            -nan     0.0800   -0.0000
+   960        0.0001            -nan     0.0800   -0.0000
+   980        0.0007            -nan     0.0400   -0.0000
+  1000        0.0000            -nan     0.1600   -0.0000
+
+predictions failed for Fold5.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold5.Rep1: interaction.depth=25, shrinkage=0.16, n.trees=1000 
+   980        0.0001            -nan     0.0800   -0.0000
+   980        0.0001            -nan     0.0800   -0.0000
+  1000        0.0007            -nan     0.0400   -0.0000
+
+predictions failed for Fold5.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold5.Rep1: interaction.depth=25, shrinkage=0.04, n.trees=1000 
+  1000        0.0001            -nan     0.0800   -0.0000
+
+  1000        0.0001            -nan     0.0800   -0.0000
+
+predictions failed for Fold4.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+predictions failed for Fold5.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 Error in 1:ncol(tmp) : argument of length 0
+ 
+- Fold4.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
+- Fold5.Rep1: interaction.depth=25, shrinkage=0.08, n.trees=1000 
+Aggregating results
+  interaction.depth n.trees shrinkage RMSE Rsquared RMSESD RsquaredSD
+1                25     500      0.04  NaN      NaN     NA         NA
+2                25     500      0.08  NaN      NaN     NA         NA
+3                25     500      0.16  NaN      NaN     NA         NA
+4                25    1000      0.04  NaN      NaN     NA         NA
+5                25    1000      0.08  NaN      NaN     NA         NA
+6                25    1000      0.16  NaN      NaN     NA         NA
+Selecting tuning parameters
+Error in train.default(dataset$x.train, dataset$y.train, method, tuneGrid = tune.grid,  : 
+  final tuning parameters could not be determined
+Calls: train -> train.default
+In addition: Warning messages:
+1: In nominalTrainWorkflow(dat = trainData, info = trainInfo, method = method,  :
+  There were missing values in resampled performance measures.
+2: In train.default(dataset$x.train, dataset$y.train, method, tuneGrid = tune.grid,  :
+  missing values found in aggregated results
+Execution halted

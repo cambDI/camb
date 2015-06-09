@@ -1,0 +1,762 @@
+\documentclass[twoside,a4wide,12pt]{article}
+%\DefineVerbatimEnvironment{Sinput}{Verbatim} {xleftmargin=2em,frame=single}
+%\DefineVerbatimEnvironment{Soutput}{Verbatim} {xleftmargin=2em,frame=single}
+\usepackage[left=2.5cm,top=2cm,right=2cm,bottom=2.5cm,bindingoffset=0.5cm]{geometry}
+\usepackage{amsmath} 
+\usepackage[affil-it]{authblk}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{pdflscape}
+\usepackage[backend=bibtex,sorting=none,style=ieee]{biblatex}
+\usepackage{setspace}
+\bibliography{biblio}
+
+
+\title{Proteochemometrics (PCM) with 'camb'\\
+{\bf C}hemistry {\bf A}ware {\bf M}odel {\bf B}uilder\\
+}
+
+\author[1,5]{\rm Isidro Cortes-Ciriano\thanks{isidrolauscher@gmail.com}} 
+\author[2,5]{\rm Daniel S. Murrell\thanks{dsmurrell@gmail.com}}
+\author[3]{\rm Gerard J. P. van Westen}
+\author[4]{\rm Ian P. Stott}
+\author[2]{\rm Andreas Bender}
+\author[1]{\rm Therese E. Malliavin}
+\author[2]{\rm Robert C. Glen}
+\affil[1]{Unite de Bioinformatique Structurale, Institut Pasteur and CNRS UMR 3825, Structural Biology and Chemistry Department, 25-28, rue Dr. Roux, 75 724 Paris, France.}
+\affil[2]{Unilever Centre for Molecular Science Informatics, Department of Chemistry, University of Cambridge, Cambridge, United Kingdom.}
+\affil[3]{ChEMBL Group, European Molecular Biology Laboratory European Bioinformatics Institute, Wellcome Trust Genome Campus, CB10 1SD, Hinxton, Cambridge, UK.}
+\affil[4]{Unilever Research, Bebington, UK.}
+\affil[5]{Equal contributors}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+
+\maketitle
+\onehalfspacing
+
+<<include=FALSE>>=
+opts_chunk$set(concordance=TRUE)
+opts_chunk$set(dev='pdf')
+Sys.setenv(TEXINPUTS=getwd(),
+           BIBINPUTS=getwd(),
+           BSTINPUTS=getwd())
+@
+
+<<echo=FALSE,results='hide'>>=
+options(width=60)
+suppressWarnings(library(png,quietly=TRUE,warn.conflicts=FALSE))
+suppressWarnings(library(caret,quietly=TRUE,warn.conflicts=FALSE))
+suppressWarnings(library(doMC,quietly=TRUE,warn.conflicts=FALSE))
+library(ggplot2,quietly=TRUE)
+library(gridExtra,quietly=TRUE)
+@
+\maketitle
+
+In the following sections, we present a pipeline to generate a Proteochemometric (PCM) model for mammal cyclooxigenase (COX) inhibitors. 
+Further details about this dataset are reserved for a future publication.
+Similarly, the interested reader is referred to ref
+\cite{review_pcm} and \cite{cortesReview} for futher details about PCM.
+
+Firstly, the package needs to be loaded and the working directory specified:
+<<echo=FALSE,results='hide',warning=FALSE,message=FALSE>>=
+library(camb)
+setwd('/Users/icortes/Desktop/camb_final/camb/examples/PCM/COX')
+@
+<<echo=TRUE,results='hide',warning=FALSE,message=FALSE>>=
+library(camb)
+#setwd('path_to_working_directory')
+@
+
+\section{Compounds}
+
+\subsection{Reading and Preprocessing}
+We proceed to read the compounds. Given that some smiles contain smarts patterns where the hash symbol is present, 
+it is necessary to switch off the argument {\it comment.char} in order not to clip the smiles:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+smiles <- read.table("smiles_COX.smi", header=FALSE,comment.char=c(""))
+@
+
+The function {\it StandardiseMolecules} enables the depiction of molecular structures in the same (standardised) form.
+The different arguments of this function allow control over the maximum number of (i) fluorines, (ii) chlorines,
+(iii) bromines, and (iv) iodines the molecules contains in order to be retained for training.
+Inorgnaic molecules (those containing atoms not in: \{H, C, N, O, P, S, F, Cl, Br, I\}) are removed if the argument "remove.inorganic" is set to "TRUE", which is the default value.
+Additionally, upper and lower limits for the molecular mass can be set with the arguments "min.mass.limit" and "max.mass.limit".
+The name of the file containing the chemical structures is input to the argument "structures.file".
+<<echo=TRUE,results='hide',warning=FALSE,message=FALSE,eval=FALSE>>=
+StandardiseMolecules(structures.file="smiles_COX.smi",
+standardised.file="standardised.sdf",
+removed.file="removed.sdf",
+properties.file = "standardisation_info.csv",
+remove.inorganic=TRUE,
+fluorine.limit=-1,
+chlorine.limit=-1,
+bromine.limit=-1,
+iodine.limit=-1,
+min.mass.limit=-1, #suggested value 20
+max.mass.limit=-1) #suggested value  900
+@
+The properties specified in the structure file of all molecules and an index, in the column "kept", indicating which molecules were deleted (0) and kept (1),
+are written to the file \verb|"standardisation_info.csv"|.
+Molecules that Indigo manages to parse and that pass the filters are written to the file indicated in the argument "standardised.file".
+By contrast, molecules that are discarded for training purposes are written to the file indicated in the argument "removed.file".
+
+<<echo=TRUE,results='hide',warning=FALSE,message=FALSE,eval=FALSE>>=
+standardised_info <- read.table("standardisation_COX_info.csv",header=TRUE,sep="\t")
+@
+
+Default values of the arguments of the function "StandardiseMolecules" are not stringent.
+In the present case, all molecules are kept, thus all values in the columns "kept"
+are equal to "1". 
+In the case of a SDF file, the function assumes that there is information 
+for all molecules for all fields (properties).
+The function {\it StandardiseMolecules} generates an additional file, 
+namely 'properties.csv', containint the molecule index and the aforesaid column "kept",
+which indicated if molecules were correctly standardized or not.
+
+The values corresponding to an individual property in a ".sdf" file can be accessed with the function "GetPropertySDF".
+Similarly, the function "GetPropertiesSDF" retrieves the information for all properties of a given ".sdf" file.
+A data.frame with all properties is returned.
+The number of molecules from which the information has to be retrieved can be indicated with the argument \verb|"number_processed"|.
+The default value for this argument is \verb|"-1"|, which indicates that the properties will be extracted for all molecules in the input file.
+<<echo=TRUE,results='hide',warning=FALSE,message=FALSE,eval=FALSE,tidy=FALSE>>=
+ShowPropertiesSDF("test.sdf") # a mock .sdf file
+GetPropertySDF("test.sdf",property="Name",
+               number_processed=10)
+
+all_properties <- GetPropertiesSDF("test.sdf",number_processed=10)
+@
+
+\subsection{PaDEL Descriptors}
+One and two-dimensional PaDEL\cite{padel} descriptors and fingerprints can be calculated with the function "GeneratePadelDescriptors":
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+descriptors_COX <- GeneratePadelDescriptors( +
+  standardised.file="smiles_COX.smi",threads = 1)
+
+descriptors <- RemoveStandardisedPrefix(descriptors)
+saveRDS(descriptors, file="Padel_COX.rds")
+descriptors <- readRDS("Padel_COX.rds")
+@
+
+Sometimes, some descriptors are not calculated for all molecules, thus giving a "NA" or "Inf" as descriptor value.
+Instead of removing that descriptor for all molecules, the missing descriptor values can be imputed from the corresponding descriptor values of the rest of molecules.
+Descriptor values equal to "Inf" are converted to "NA".
+For the imputation of missing descriptor values, the R package {\it impute} is required.
+Depending on the R version, it can be accessed from either {\it CRAN} or {\it Bioconductor}.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),eval=FALSE>>=
+descriptors <- ReplaceInfinitesWithNA(descriptors)
+descriptors <- ImputeFeatures(descriptors)
+@
+
+\subsection{Circular Morgan Fingerprints}
+The calculation of circular Morgan fingerprints requires the python library RDkit,
+given that the function "MorganFPs" calls a python script for the calculation of this type of fingerprints.
+The python code is available in the "extdata" folder of the package or at:\\
+https://github.com/isidroc/FingerprintCalculator.\\
+For a detailed discussion about circular Morgan fingerprints, we refer
+the interested reader to ref. \cite{morgan}.
+When using integrated development environments (IDE) such as RStudio,
+the environment variables might not be defined within the R session.
+However, they can be redefined with the R function "Sys.setenv".
+In any case, the function "MorganFPs" requires this information in the arguments "PythonPath", path to python in the system, and "RDkitPath", the path to the RDkit library. 
+For instance, the information of the latter is contained in the environment variable \verb|$RDBASE| in Mac OS.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),eval=FALSE,tidy=FALSE>>=
+Sys.setenv(RDBASE="/usr/local/share/RDKit")
+Sys.setenv(PYTHONPATH="/usr/local/lib/python2.7/site-packages")
+
+fps_COX_512 <- MorganFPs(bits=512,radii=c(0,1,2),mols='smiles_COX.smi', 
+                         output='COX',keep='hashed_counts',
+                         RDkitPath='/usr/local/share/RDKit',
+                         PythonPath='/usr/local/lib/python2.7/site-packages',
+                         images = FALSE, unhashed = FALSE, 
+                         extMols = FALSE, unhashedExt = FALSE, 
+                         logFile = FALSE)
+
+saveRDS(fps_COX_512,file="fps_COX_512.rds")
+fps_COX_512 <- readRDS("fps_COX_512.rds")
+@
+
+The function 'MorganFPs" enables the calculation of the following types of fingerprints:
+\begin{itemize}
+
+\item Hashed fingerprints in {\bf binary format} of a given number of bits (argument 'bits') considering substructures with a maximum radius, defined with the argument 'radius', for the molecules specified in the argument 'mols'. These fingerprints are dropped to the output file \verb|COX_hashed_binary.csv|, where output corresponds to the value of the argument 'output' ("COX" in the example presented above). 
+In the calculation of hashed fingerprints, several substructures can be mapped to the same bit position.
+Therefore, it might be important for the sake of interpretability to know which substructures are mapped to which bit in the fingerprint. This information is given in the file \verb|COX_features_per_bit_hashed_fp.csv|.
+The first column of the file corresponds to the bit index, whereas the remaining columns correspond to substructure ids.
+This file is created automatically every time the function is run.
+
+\item Hashed fingerprints in {\bf counts format} of a given number of bits (argument 'bits') considering substructures of radius comprised in the set defined with the argument 'radii', for the molecules specified in the argument 'mols'. These fingerprints are dropped to the output file \verb|COX_hashed_counts.csv|.
+
+\item Unhashed fingerprints in {\bf binary format}. All substructures present in the input molecules (argument 'mols') are considered. Each position in the unhashed fingerprint corresponds to a given substructure. Thus, the resulting fingeprints are keyed. The smiles for each substructure and the number of atoms thereof is given in the output file \verb|COX_smiles_substructures.csv|. This file is created automatically every time the function is run. 
+Unhashed fingerprints in {\bf binary format} are dropped to the output file \verb|COX_unhashed_binary.csv|.
+
+\item Unhashed fingerprints in {\bf counts format}. All substructures present in the input molecules (argument 'mols') will be considered. Each position in the unhashed fingerprint corresponds to a given substructure. Thus, the resulting fingeprints are keyed. In contrast to binary format, where a given bit is set on if a substructure appears in a molecule irrespective of the number of times the substructure is present therein, the number of occurrences of each substructure is accounted. 
+The IDs and smiles for each substructure is given in the output file \verb|COX_substructure_smiles_EXT.csv|,  whereas the fingerprints are dropped to the output file \verb|COX_unhashed_counts.csv|.
+The file \verb|'COX_substructure_dictionary_EXT.csv'| indicates in which molecules each substructure appears. The first column
+of this file contains the substructure IDs, whereas the second the index (starting at zero) of the molecules harboring the substructures.
+
+\item In those cases where a given predictive model has been built on unhashed fingeprints, the same fingerprints should be 
+calcualted for new molecules for which predictions are to be made by that model. 
+To this aim, the function "MorganFPs" enables the calculation of both hashed and unhashed fingerprints (in both binary and counts format) for the molecules present in a given file (hereinafter referred to as external file). The unhashed fingeprints will be calculated based on the pool of substructures present in the file indicated in the argument "mols".
+To enable the calculation of fingerprints for the external file, the arguments "extMols", name of the external file, need to be set. 
+The hashed fingerprints will be dropped to the following files:\\
+(i) binary format: \verb|COX_hashed_binary_EXT.csv|, \\
+and (ii) counts format: \verb|COX_hashed_counts_EXT.csv|.
+If the user also wants the calculation of unhashed fingerprints for the molecules present in the external file, the argument "unhashedExt" needs to be set to TRUE. 
+In this case the unhashed fingeprints will be dropped to the following files:\\
+(i) binary format: \verb|COX_unhashed_binary_EXT.csv|,\\
+and (ii) counts format: \verb|COX_unhashed_counts_EXT.csv|.
+
+\end{itemize}
+
+The indexes of the molecules that could not be handled during the calculation are dropped to the file \verb|incorrect_molecules_smiles_COX.csv|. Similarly, the indexes of the molecules from the external file that could not be processed are given in the file \verb|incorrect_molecules_|+{\it root of the external file name} + |.csv.|
+
+In the following paragraphs we describe in detail the arguments of the function "MorganFPs":
+\begin{itemize}
+\item {\bf bits:} Number of bits of the hashed fingerprints. The default value is 512.
+\item {\bf radii:} Substructure radii to be considered. A radius of 2 is equivalent to \verb|ECFP-4|, where 4 corresponds to the diameter. The default value is the set {0,1,2}.
+More information on ECFP fingerprints can be found here:\\
+\verb|http://www.chemaxon.com/jchem/doc/user/ECFP.html|.
+\item {\bf mols:} File containing the input molecules.
+\item {\bf output:} Label that will be appended to all ouput files (see below).
+\item {\bf keep:} The fingeprints that will be kept after the calculation.
+Apart from calculating different types of fingerprints, the function returns a data.frame with the type of fingerprints specified with this argument.  Possible types are: \verb|hashed_binary|,\verb|hashed_counts|, \verb|unhashed_binary|, \verb|unhashed_counts|, and if applicable,\\
+\verb|hashed_binaryEXT|, \verb|hashed_countsEXT|, \verb|unhashed_binaryEXT|,\\
+and \verb|unhashed_countsEXT|.
+The default value is \verb|"hashed_binary"|.
+\item {\bf images:} If TRUE, individual ".pdf" files containing (i) the image of each substructure in the context of a molecule presenting it, and (ii) each molecule correctly processed, are created.  Be aware that the number of substructures can be large depending on the number and diversity of the molecules present in the input file. Thus, allow for sufficient memory in those cases.
+The default value is FALSE.
+\item {\bf unhashed:} If TRUE, unhashed fingeprints, both in binary format and with counts, are calculated. The default value is FALSE.
+\item {\bf RDkitPath:} The path to the folder containing the RDkit library in your computer. On mac, the environment variable \verb|$RDBASE| contains this information. The default value is "/usr/local/share/RDKit".
+\item {\bf PythonPath:} Path to python (\verb|$PYTHONPATH|).\\
+The default value is "/usr/local/lib/python2.7/site-packages".
+\item {\bf extMols:} If not FALSE, external file containing the molecules for which unhashed fingeprints are to be calculated with respect to the pool of
+substructures in the molecules present in the file specified in "mols". The default value is FALSE.
+\item {\bf unhashedExt:} If TRUE, unhashed fingerprints are calcualted for the molecules specified in "extMols". The default value is FALSE.
+\item {\bf logFile:} If not FALSE, file to which the log messages will be dropped. The default value is FALSE.
+\end{itemize}
+
+
+\section{Targets}
+
+In the following section the tools provided by {\it camb} to calculate amino acid and whole protein descriptors will be presented.
+
+\subsection{Reading and Preprocessing Amino Acid Descriptors}
+In the current example, the amino acids implicated in ligand binding were extracted from the binding site of the ovine cyclooxygenase 1 (PDB ID: 3KK6). The corresponding amino acids for the rest of mammal cyclooxygenases were defined by sequence alignment.
+The amino acids corresponding to the target part of each compound-target combination in the dataset are given in the file \verb|"AAs_COX.csv"|. Thus, the number of rows of this file corresponds to the number of datapoints in the dataset.
+We proceed to read the amino acids from the ".csv" file:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),eval=FALSE,tidy=TRUE>>=
+amino_acid_IDs <- read.table("AAs_COX.csv",sep=",",
+                                 header=TRUE,colClasses=c("character"),
+                                 row.names=1)
+amino_acid_IDs <- amino_acid_IDs[,2:ncol(amino_acid_IDs)]
+@
+Subsequently, 5 \verb|Z-scales| will be calculated, which will serve to describe the target space in the PCM models.
+The descriptors will be saved to a ".rds" file.
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),eval=FALSE,tidy=TRUE>>=
+amino_acid_IDs_zscales <- AADescs(Data=amino_acid_IDs,type="Z5")
+saveRDS(amino_acid_IDs_zscales,file="Z5_COX.rds")
+amino_acid_IDs_zscales <-readRDS("Z5_COX.rds")
+@
+
+<<echo=FALSE,results='hide',warning=FALSE,message=FALSE>>=
+amino_acid_IDs_zscales <-readRDS("Z5_COX.rds")
+@
+The function \verb|"AADescs"| permits the calculation of the following types of amino acid descriptors (futher details about these amino acid descriptors can be found in refs \cite{AAs1} and \cite{AAs2}):
+\begin{itemize}
+\item ProtFP8
+\item T-Scales
+\item VHSE
+\item ST-Scales
+\item BLOSUM
+\item FASGAI
+\item MSWHIM
+\item 5 Z-Scales
+\item 3 Z-Scales
+\end{itemize}
+This function outputs a data.frame which columns are indexed by the descriptors, and rows by the datapoints. Thus, the number of rows in the original data.frame or matrix, and the number of rows of the ouput data.frame are equal. 
+If several descriptor types are chosen, by providing a vector of strings to the argument "type", descriptors are concatenated for the ease of further modeling. 
+For instance: 
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),eval=TRUE,tidy=TRUE>>=
+AADescs(Data=c("Ala"),type=c("Z5","BLOSUM"))
+@
+Column names indicate the amino acid position in the original input data, and the type of descriptor.
+\\
+Whole sequence descriptors can be computed with the function "SeqDescs". 
+The function takes as argument either a UniProt identifier, or either a matrix or dataframe with the protein sequences.
+If a UniProt identifier is provided, the function gets firstly the sequence and then calculates the descriptors on the sequence.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+Seq_descriptors_P00374 <- SeqDescs("P00374",UniProtID=TRUE,type=c("AAC","DC"))
+@
+The available types of whole sequence descriptors are:\cite{protr}
+\begin{itemize}
+\item Amino Acid Composition ("AAC")
+\item Dipeptide Composition ("DC")
+\item Tripeptide Composition ("TC")
+\item Normalized Moreau-Broto Autocorrelation ("MoreauBroto")
+\item Moran Autocorrelation ("Moran")
+\item Geary Autocorrelation ("Geary")
+\item  CTD (Composition/Transition/Distribution) ("CTD")
+\item Conjoint Traid ("CTriad")
+\item Sequence Order Coupling Number ("SOCN")
+\item Quasi-sequence Order Descriptors ("QSO")
+\item Pseudo Amino Acid Composition ("PACC")
+\item Amphiphilic Pseudo Amino Acid Composition ("APAAC")
+\end{itemize}
+
+\subsection{Reading Dataset Information}
+In the following subsection, 
+the file containing the information about the dataset, namely: target names, bioctivities, etc.., wil be read.
+Note that when reading molecules in smiles format from a ".csv" file into an R dataframe, the smiles are clipped after a hash ("\#") symbol.
+A good practice is thus to also keep the smiles alone in a separate \{.smi,.smiles\} file.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE>>=
+dataset <- readRDS("COX_dataset_info.rds")
+bioactivity <- dataset$standard_value
+@
+The bioactivity is in nM. We convert it to pIC50. To do that, we multiply by \verb|10^-9| to convert the bioactivity units to M.
+Subsequently, the negative logarithm to base 10 is calculated:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE>>=
+bioactivity <- bioactivity * 10^-9
+bioactivity <- -log(bioactivity,base=10)
+@
+
+\section{Dataset Visualization}
+Compounds can be depicted with the function "PlotMolecules".
+This function returns a list of four plots. Additionally, plots can also be written into a ".pdf" file if the argument "pdf.file" is not NULL. The argument "IDs" corresponds to the index of the molecules in the input file which are to be depicted.
+The name of the molecule in the input file will be used as the title of the image if the argument "useNameAsTitle" is set to TRUE.
+When using integrated development environments (IDE) such as RStudio,
+there might be errors with the rendering of the plots. 
+In these cases, we adivse to use R in the command line.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE,results='hide',echo=FALSE>>=
+# we redefine the function isnot
+is.intalled <- function(mypkg) is.element(mypkg, installed.packages()[,1])
+@
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,fig.align='center',fig.cap="Example of compoud depiction.",dpi=100,eval=TRUE,echo=TRUE,message=FALSE>>=
+plot_molecules <- PlotMolecules(sdf.file = "standardised.sdf",IDs=c(1,2,3,4),pdf.file=NULL,useNameAsTitle=TRUE,PDFMain=NULL) 
+print(plot_molecules[[1]])
+@
+
+The distribution of the response variable can be explored with the function "DensityResponse" in the following way: 
+<<highlight=TRUE,results='hide',tidy.opts=list(width.cutoff=50),tidy=TRUE,fig.align='center',fig.cap="Bioactivity Distribution",dpi=100,eval=TRUE>>=
+dens_resp <- DensityResponse(bioactivity,xlab="pIC50",main="",ylab="Densitiy",TitleSize=30,XAxisSize=22,YAxisSize=22,TitleAxesSize=24,AngleLab=0,lmar=0,rmar=0,bmar=0,tmar=0,binwidth=0.3)
+@
+Given that the output of the function "DensityResponse" is a ggplot2 object, additional layers can be added to further customize the image.\\
+A common analysis in bio- and chemoinformatics is to run a Pricipal Component Analysis (PCA) on either compound or target descriptors. 
+The function "PCA" enables the calculation of the Principal Components (PCs) for a given set of descriptors.
+The function takes as arguments the descriptors and, optionally, the names of the rows, {\it i.e.} datapoints.
+Further arguments of the function {\it prcomp} from the package {\it stats}, use to run the PCA analysis, can be additionally set.
+The function returns a list with following elements :
+\begin{itemize}
+\item Data : a dataframe containing the two first PCs and the row names if provided. 
+Rows are indexed as in the input data corresponds to a list.
+\item \verb|PCs_All| : a dataframe containing all PCs.
+\item Std : a vector containing the standard deviation of all PCs.
+\item Info : information about the PCA analysis, such as the proportion of variance explained by each PC.
+It is always advisable to verify that the two or three first PCs explain a large proportion of the variance in the data,
+if conclusions are to be extracted from this type of analysis.
+\end{itemize}
+The function "PCAPlot" provides an easy way to plot the first two PC. 
+As all the plotting function provided with {\it camb}, it is based on 
+{\it ggplot2}, which allows further customization by the user.
+Below is an example of how to use these two function to do a PCA analysis of the target space, 
+which in this case is quantified by the amino acid descriptors of the amino acids present in the binding site
+of mammal cyclooxygenases.
+<<highlight=TRUE,results='hide',tidy.opts=list(width.cutoff=50),tidy=FALSE,fig.align='center',fig.cap="PCA Analysis on the\nAmino Acid Descriptors",eval=TRUE>>=
+target_PCA <- PCA(Data=amino_acid_IDs_zscales,
+                  RowNames=dataset$accession,
+                  cor=TRUE,scale = TRUE, 
+                  center = TRUE)
+
+plot_PCA_COX <- PCAPlot(target_PCA$Data,PointSize=10,main="",
+                  TitleSize=30,XAxisSize=20,YAxisSize=20,
+                  TitleAxesSize=28,LegendPosition="bottom",
+                  RowLegend=3,ColLegend=5,LegendTitleSize=15,
+                  LegendTextSize=15)
+@
+
+Similarly, the chemical space can be explored by calculating pairwise compound similarities based upon compound descriptors. 
+In this case, we use the Jaccard metric to calculate the distance between compounds.
+See the documentation of the {\it vegan} package for further information about other dissimilarity indices available.
+The function "PairwiseDist" is based on the function "vegdist" from the package {\it vegan}.
+Further arguments specified in the function "PairwiseDist" will be passed to the function "vegdist". 
+For illustration, the argument "na.rm" will be given below to the "PairwiseDist" function, which will be in turn
+passed to the function "vegdist".
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+pw_dist_comp_fps <- PairwiseDist(fps_COX_512,method="jaccard",na.rm=TRUE)
+saveRDS(pw_dist_comp_fps,file="pairwise_dist_COX.rds")
+@
+The dissimilarity distribution can be depicted with the function "PairwiseDistPlot": 
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE>>=
+pw_dist_comp_fps <- readRDS("pairwise_dist_COX.rds")
+plot_pwd <- PairwiseDistPlot(pw_dist_comp_fps,
+                             xlab="Jaccard Index",
+                             ylab="Density",TitleSize=26,
+                             XAxisSize=20,YAxisSize=20,
+                             TitleAxesSize=24,lmar=0,
+                             rmar=0,bmar=0,tmar=0,AngleLab=0)
+@
+
+<<highlight=TRUE,tidy=TRUE,fig.align='center',fig.cap="Density of the response variable (upper panel). Pairwise Compound Jaccard Similarity (bottom pannel)",dpi=100>>=
+grid.arrange(dens_resp,plot_pwd,nrow=2)
+@
+
+%\newpage
+Before any modeling attempt, it is interesting to know which is the maximum performance achievable {\it on the basis} of the uncertainty of the available data.\cite{cortesGP}
+To this aim, we consider the experimental uncertainty and the size of our dataset. 
+In this case, a Gaussian Process (GP) model was trained in Matlab (data not shown) where the experimental uncertainty was optimized as a hyperparameter. The obtained value was 0.60 pIC50 units.
+This value is in accordance with the recently published value of 0.68 pIC50 units for public IC50 data.\cite{Kalliokoski2013}
+With the function 'MaxPerf', we can calculate the maximum achievable performance, whereas with the function "MinPerf",
+we can calculate the minimum achievable performance.
+
+<<highlight=TRUE,tidy=FALSE,fig.align='center',fig.cap="Maximum achievable model performance",dpi=100,eval=TRUE>>=
+max_performance <- MaxPerf(meanNoise=0,sdNoise=0.6,
+                           resp=bioactivity, stds=NULL,
+                           lenPred=length(bioactivity)*0.3,tmar = 0.2, 
+                           bmar = 0.2, rmar = 0.2, 
+                           lmar = 0.2)
+grid.arrange(max_performance$p1,max_performance$p2,
+             max_performance$p3,max_performance$p4,nrow=2)
+@
+In cases where the experimental uncertainty of the bioactivity values is not known, 
+a sample from a Gaussian distribution,
+with mean equal to "meanNoise" and standard deviation equal to "sdNoise",
+is drawn. 
+This sample will be considered as the experimental uncertainty of the bioactivity values.
+On the other hand, if the experimental uncertainties are known, they can be input to the function via the argument 
+"stds". 
+The same applies to the function "MinPerf".
+The function returns a list of four plots, to which further layers can be added given that they are {\it ggplot} objects.
+Some graphical arguments are already available in the function "MaxPerf".
+In the example given above, the margin of the plots is controlled with the arguments "tmar", "bmar", "rmar", and "lmar",
+which respectively correspond to the top, bottom, right and left margins.
+As we can see from Figure 3, the maxima achievable values for the correlation metrics are far from one.
+Hence the importance of assessing the theoretical maximum performance the models can achieve on the basis of the uncertainty of the experimental measurements.
+
+\section{Statistical Pre-processing}
+Bioactivity annotations in ChEMBL are sometimes redundant, 
+meaning that for a given target-compound combination there are more than one bioactivity values.
+To avoid this issue, we will remove redundant pairs and will keep the mean bioactivity value for those repeated compound-target combinations.
+Further information in this respect will appear in a future publication.
+In order to remove duplicate values, we run the file \verb|"remove_duplicates.R":|
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+source("remove_duplicates.R")
+@
+The dataset without repeated repetitions will be saved to the file \verb|"Whole_dataset.rds".|
+The dataset with only (i) compound descriptors, PaDEL and Morgan fingerprints, and (ii) amino acid descriptors
+will be saved to the files \verb|"Whole_dataset_compound_descriptors.rds"| and \verb|"Whole_dataset_aa_descriptors.rds"|
+respectively. All variables created while running the file \verb|"remove_duplicates.R"| will be saved to the file\\
+\verb|"data_processing_repetitions_COX.RData"|.
+
+In cases where no repeated bioactivities are present for the same datapoint, 
+the different descriptors blocks (PaDEL, Morgan fingerprints and amino acid descriptors in this case)
+can be simply stacked horizontally with the function "cbind".
+
+Subsequently, we load the dataset without repetitions generated in the previous step. 
+In addition, we remove those columns not containing descriptors (e.g. compound names):
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE>>=
+dataset <- readRDS("Whole_dataset.rds")
+killset <- expression(c(tid,pref_name,accession,organism,chembl_id,standard_value,standard_units, standard_type,chembl_id.1,Name,Name.1,Name.2,rows))
+bioactivity <- dataset$standard_value
+compound_IDs <- dataset$chembl_id.1
+dataset <- subset(dataset,select=-eval(killset))
+@
+
+Subsequently, we split the dataset into training (70\%) and hold-out (external; 30\%) sets that will be used to assess the predictive ability of the models. Furthermore, we remove the following descriptors: (i) those with a variance close to zero (near-zero variance), and (ii) those highly correlated:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+# Split the dataset into a training and holdout set
+dataset <- SplitSet(compound_IDs, dataset, bioactivity, percentage=30,seed=1)
+
+# Remove the descriptors that are highly correlated or have low variance
+dataset <- RemoveNearZeroVarianceFeatures(dataset,frequencyCutoff=30/1)
+dataset <- RemoveHighlyCorrelatedFeatures(dataset)
+@
+
+We convert the descriptors to z-scores by centering them to zero mean and scaling their values to unit variance:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+dataset <- PreProcess(dataset)
+@
+
+Given that cross-validation (CV) will be used to optimize the hyperparameters of the models, we divide the training set in 5 folds:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+dataset <- GetCVTrainControl(dataset,seed=1,folds=5,repeats=1,
+                             returnResamp='none',returnData=FALSE,
+                             savePredictions=TRUE,verboseIter=TRUE, 
+                             allowParallel=TRUE,
+                             index=createMultiFolds(y.train, k=folds, times=repeats))
+saveRDS(dataset, file="dataset_COX_preprocessed.rda")
+@
+All models are trained with the same CV options, {\it i.e.} the arguments of the function 'GetCVTrainControl' to allow ensemble modeling (see below).
+It is important to mention that the functions presented in the previous code blocks depend on functions from the {\it caret} package, namely: 
+\begin{itemize}
+\item RemoveNearZeroVarianceFeatures : nearZeroVar
+\item RemoveHighlyCorrelatedFeatures : findCorrelation
+\item PreProcess : preProcess
+\item GetCVTrainControl : trainControl
+\end{itemize}
+Experienced users might want to control more arguments of the underlying {\it caret} functions.
+This is certainly possible as the arguments given to the {\it camb} functions will be subsequently given to their {\it caret} counterparts.
+The default values of these function however permit the less experienced user to go through the statistical preprocessing steps with ease, though guaranteeing that the choice of the argument values is reasonable.
+
+
+\section{Model Training}
+In the following section we will present the different steps required to train a PCM model with {\it camb}.
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE>>=
+dataset <- readRDS("dataset_COX_preprocessed.rda")
+# Number of cores to be used during model training
+cores <- 3
+registerDoMC(cores) 
+@
+
+\subsection{Support Vector Machines (SVM)}
+Firstly, a SVM will be trained \cite{svmreview}.
+We define an exponential grid (base 2) to optimize the hyperparameters:
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+method <- "svmRadial"
+exp_grid <- expGrid(power.from=-8,power.to=-6,power.by=2,base=2)
+tune.grid <- expand.grid(.sigma = exp_grid)
+@
+
+Training (based on the {\it caret} function "train"):
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+modelCoxSVMrad <- train(dataset$x.train, dataset$y.train, method, tuneGrid=tune.grid, trControl=dataset$trControl)
+saveRDS(modelCoxSVMrad, file="model_SVM.rds")
+@
+
+\subsection{Random Forest}
+We proceed similarly in the case of a random forest (RF) model\cite{rf}.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+method <- "rf"
+modelCoxRF<- train(dataset$x.train, dataset$y.train, method, trControl=dataset$trControl)
+saveRDS(modelCoxRF, file="model_RF.rds")
+@
+%Loading the RF model.
+<<echo=FALSE,results='hide',warning=FALSE,message=FALSE,eval=TRUE>>=
+modelCoxRF<- readRDS("model_RF.rds")
+@
+
+\subsection{Gradient Boosting Machine}
+We proceed similarly in the case of a gradient boosting machine (GBM) model\cite{gbm}.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+method <- "gbm"
+tune.grid <- expand.grid(.shrinkage=c(0.04, 0.08, 0.12, 0.16), 
+                         .n.trees=c(500), .interaction.depth=c(25))   
+modelCoxGBM<- train(dataset$x.train, dataset$y.train, method, tuneGrid=tune.grid, trControl=dataset$trControl)
+saveRDS(modelCoxGBM, file="model_GBM.rds")
+@
+
+
+\section{Model Evaluation}
+
+Once the models are trained, the cross validated metrics can be calculated:
+we assume that the metric used for the choice of the best combination of hyperparameters is 'RMSE',
+which is normally considered as the aim of bioactivity modeling, {\it i.e.} how far (on average) are our 
+predictions from the real bioactivity values?.
+In the following we focus on the RF model, though the same steps can be applied to the GBM and SVM models.
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE>>=
+RMSE_CV_rf = RMSE_CV(modelCoxRF, digits=3)
+Rsquared_CV_rf = Rsquared_CV(modelCoxRF,digits=3)
+print(RMSE_CV_rf)
+print(Rsquared_CV_rf)
+@
+
+On the basis of the soundness of the obtained models, assessed through the value of the cross-validated metrics, 
+we proceed to predict the values for the external (hold-out) set:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,warning=FALSE,message=FALSE,eval=FALSE>>=
+holdout.predictions <- as.vector(predict(modelCoxRF$finalModel, newdata = dataset$x.holdout))
+@
+
+The predictive ability of the models is evaluated by the calculation of the following statistical metrics:
+
+{\bf Internal validation:}
+
+\begin{equation}
+q_{{\it int}}^{2} \ or \  R_{int}^{2}  = 1 - \frac {\sum_{i=1}^{N_{tr}} (y_{i} - \widetilde{y}_{i})^{2}} {\sum_{i=1}^{N_{tr}} (y_{i} - \bar{y}_{tr})^{2}}
+\end{equation}
+% cross-validated correlation coefficient
+
+\begin{equation}
+RMSE_{int} = \frac {\sqrt {(y_i - \widetilde{y}_i)^{2}}} {N}
+\end{equation}
+
+where $N_{tr}$, $y_i$, $\widetilde{y}_i$ and $\bar{y}_{tr}$ represent the size of the training set, the observed, the predicted and the averaged values of the dependent varia
+ble for those datapoints included in the training set. The {\it i}th position within the training set is defined by {\it i}.\\
+
+
+{\bf External validation:}
+
+\begin{equation}
+Q_{1\ {\it test}}^{2} = 1 - \frac {\sum_{j=1}^{N_{test}} (y_j-\widetilde{y}_j)^{2}}  {\sum_{j=1}^{N_{test}} (y_j - \bar{y}_{tr})^{2}}
+\end{equation}
+
+\begin{equation}
+Q_{2\ {\it test}}^{2} = 1 - \frac {\sum_{j=1}^{N_{test}} (y_j-\widetilde{y}_j)^{2}}  {\sum_{j=1}^{N_{test}} (y_j - \bar{y}_{test})^{2}}
+\end{equation}
+
+\begin{equation}
+Q_{3\ {\it test}}^{2} = 1 - \frac {[\sum_{j=1}^{N_{test}} (y_j-\widetilde{y}_j)^{2}] / N_{test} }  {[ \sum_{j=1}^{N_{tr}} (y_j - \bar{y}_{tr})^{2}] / N_{tr}}
+\end{equation}
+
+\begin{equation}
+RMSE_{test} = \frac {\sqrt {(y_j - \widetilde{y}_j)^{2}}} {N} 
+\end{equation}
+
+\begin{equation}
+R_{test} = \frac {{\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})}  (\widetilde{y}_{j} - \overset{-}{\widetilde{y}_{test}})} 
+{\sqrt{\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})^{2} \sum{ (\widetilde{y}_{j} - \overset{-}{\widetilde{y}_{test}})^{2}}}}
+\end{equation}
+
+\begin{equation}
+R_{0\:test}^2 = 1 - \frac {\sum_{j=1}^{N_{test}} (y_{j} - \widetilde{y}_{j}^{ r0})^{2}} {\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})^{2}} 
+\end{equation}
+
+where $N_{tr}$, $N_{test}$, $y_j$, $\widetilde{y}_j$, and $\bar{y}_{test}$ represent the size of the training and test sets, the observed, the predicted, and the averaged val
+ues of the dependent variable for those datapoints comprising the test set, respectively.
+$\bar{y}_{tr}$ represents the averaged values of the dependent variable for those datapoints comprising the training set.
+The {\it j}th position within the training set is defined by {\it j}.\\ 
+
+
+$R_{0\:ext}^2$ is the square of the coefficient of determination through the origin, being $\widetilde{y}_{j}^{ r0} = k \widetilde{y}_j$ the regression through the origin (observed versus predicted) and $k$ its slope.\\
+For a detailed discussion of both the evaluation of the predictive ability through the external set and about the three different formulations for $Q^{2}_{ext}$, namely $Q_{1\ {\it ext}}^{2}$, $Q_{2\ {\it ext}}^{2}$, and $Q_{3\ {\it ext}}^{2}$, see ref.\cite{consonni}. 
+To be considered as predictive, a model must satisfy the following criteria:\cite{beware,earnest}
+\\
+\begin{enumerate}
+\item $q_{{\it int}}^{2} > 0.5$
+\item $R_{ext}^2 > 0.6$
+\item $ \frac {(R_{ext}^2 - R_{0\:ext}^2)} {R_{ext}^2} < 0.1$
+\item $0.85 \leq k \leq 1.15$
+\end{enumerate}
+
+The metrics for the external validation are given by:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+MetricsRf <- Validation(predholdout.predictions,dataset$y.holdout, resp_tr=bioactivities)
+@
+The argument \verb|"resp_tr"|, requires the bioactivity values of the datapoints present in the training set.
+These values are required by the metrics $Q_{1}$ and $Q_{3}$ (see above).
+Individual functions for all metrics presented above are also available in {\it camb}.\\
+To visualize the correlation between predicted and observed values, we can use the 'CorrelationPlot' function:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE,results='hide',echo=FALSE>>=
+# loading the z.test values...
+holdout.predictions <- readRDS("/Users/icortes/Desktop/COX/ztest_doc.rds") 
+dataset$y.holdout <- readRDS("/Users/icortes/Desktop/COX/ytest_doc.rds")
+@
+
+
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,fig.align='center',fig.cap="Observed vs Predicted",dpi=100>>=
+CorrelationPlot(pred=holdout.predictions,obs=dataset$y.holdout,PointSize=3,ColMargin='blue',TitleSize=26,XAxisSize=20,YAxisSize=20,TitleAxesSize=24,margin=2,PointColor="black",PointShape=16,MarginWidth=1,AngleLab=0,xlab="Observed",ylab="Predicted")
+@
+
+\section{Ensemble Modeling}
+In the following section, two ensemble modeling techniques will be applied, namely greedy optimization and model stacking.
+Further information can be found in ref \cite{caretEnsemble} and \cite{caruana}.
+<<highlight=FALSE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=TRUE,echo=FALSE,message=FALSE,results='hide'>>=
+suppressWarnings(require(devtools,quietly=T,warn.conflicts=FALSE)) || stop("package devtools need to be installed")
+suppressWarnings(require(pbapply,quietly=TRUE,warn.conflicts=FALSE)) || stop("package pbapply need to be installed")
+@
+
+To get (i) the training set, (ii) the external set, (iii) the transformation applied to center and scale the descriptors before model training, and (iv) the model training options, we run the following lines of code:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+data <- list()
+attach(dataset)
+data$transformation <- transformation
+data$x.train <- x.train
+data$y.train <- y.train
+data$x.test <- x.holdout # external set
+data$y.test <- y.holdout # external set
+data$trControl <- trControl
+saveRDS(data, file="data_ensemble.rds")
+detach(dataset)
+@
+Subsequently, we load the models previously trained.
+The list of models is in the file {\it modelsEnsemble}.
+Once all models have been loaded, we create the following ensemble:
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+greedy <- caretEnsemble(all.models, iter=1000L)
+sort(greedy$weights, decreasing=TRUE)
+
+all.models <- list()
+models <- as.vector(read.table("modelsEnsemble")$V1)
+
+for (i in 1:length(models)){
+  model_load = paste("readRDS('",models[i],"')",sep="")
+  assign(paste("model_",i,sep=""), eval(parse(text=model_load)))
+  all.models[[length(all.models)+1]] <- eval(parse(text=paste("model_",i,sep="")))
+}
+
+names(all.models) <- sapply(all.models, function(x) x$method)
+sort(sapply(all.models, function(x) min(as.vector(na.omit(x$results$RMSE)))))
+@
+
+Once all models have been loaded, we create the following ensemble:
+  %\begin{enumerate}
+%\item Greedy (now it can only optimize the hold-out RMSE)
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+  greedy <- caretEnsemble(all.models, iter=1000L)
+sort(greedy$weights, decreasing=TRUE)
+@
+
+%\item Model Stacking
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+  # make a linear regression ensemble
+  linear <- caretStack(all.models, method='glm')
+summary(linear$ens_model$finalModel)
+
+# make Elastic Net ensemble
+enet_ens <- caretStack(all.models, method='enet')
+coefs_enet_ens <- enet_ens$ens_model$finalModel$beta.pure +
+[ncol(enet_ens$ens_model$finalModel$beta.pure)+1,]
+
+# make SVM linear ensemble
+trControl <- trainControl(method = "cv",  number=5)
+tune.grid <- expand.grid(.C=expGrid(power.from=-14,
+                                    power.to=10,power.by=1,base=2))
+linear_svm <- caretStack(all.models, method='svmLinear',
+                         trControl=trControl,tuneGrid=tune.grid)
+
+# make SVM radial ensemble
+trControl <- trainControl(method = "cv",  number=5)
+tune.grid <- expand.grid(.sigma=expGrid(power.from=-14,
+                                        power.to=10,power.by=1,base=2),
+                         .C=expGrid(power.from=-14,power.to=10,
+                                    power.by=2,base=2))
+radial_svm <- caretStack(all.models, method='svmRadial',
+                         trControl=trControl,tuneGrid=tune.grid)
+@
+%\end{enumerate}
+We proceed to predict the bioactivities for the external (hold-out) set,
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+preds <- data.frame(sapply(all.models, predict, newdata=dataa$x.test))
+preds$ENS_greedy <- predict(greedy, newdata=dataa$x.test)
+preds$ENS_linear <- predict(linear, newdata=dataa$x.test)
+preds$ENS_enet <- predict(enet_ens, newdata=x.test)
+preds$ENS_SVMrad <- predict(radial_svm, newdata=x.test)c
+preds$ENS_SVMlin <- predict(linear_svm, newdata=x.test)
+@
+
+and we calculate the values of the statistical metrics:
+  
+<<highlight=TRUE,tidy.opts=list(width.cutoff=50),tidy=TRUE,eval=FALSE>>=
+# Calculate metrics (We could also have applied Validation instead.)
+Q2_1s <- apply(preds,2, function(x) Qsquared1(x,dataa$y.test))
+Q2_2s <- apply(preds,2, function(x) Qsquared2(x,dataa$y.test))
+Q2_3s <- apply(preds,2, function(x) Qsquared3(x,dataa$y.test))
+R2s <- apply(preds,2, function(x) Rsquared(x,dataa$y.test))
+R20s <- apply(preds,2, function(x) Rsquared0(x,dataa$y.test))
+RMSEs <- apply(preds,2, function(x) RMSE(x,dataa$y.test))
+@
+%\section{Bibliography}
+\newpage
+\printbibliography
+
+\end{document}

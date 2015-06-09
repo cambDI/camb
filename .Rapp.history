@@ -1,0 +1,12 @@
+plot(runif(1,100))
+hist(runif(1,100)
+)
+plot(runif(100))
+setwd("/Users/icortes/Desktop/Stephanie/")#
+library(camb)
+install.packages('vamb')
+c
+install.packages('camb')
+getwd()
+setwd("/Users/icortes/Desktop/camb_final/camb/")
+install.packages('camb',type='source',repo=NULL)

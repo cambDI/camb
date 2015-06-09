@@ -1,0 +1,3 @@
+Command to generate the documentation file form the .Rd files:
+
+R CMD Rd2pdf --pdf --force --title='Chemistry Aware Model Builder (camb). Package documentation' -o "camb_documentation.pdf" `ls *.Rd | sort -f`

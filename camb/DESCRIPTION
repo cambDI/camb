@@ -1,0 +1,31 @@
+Package: camb
+Type: Package
+Title: camb - Chemistry Aware Model Builder.
+Version: 1.0
+Date: 2013-02-06
+Author: Daniel Murrell <dsmurrell@gmail.com>, Isidro Cortes
+    <isidrolauscher@gmail.com>
+Maintainer: Daniel Murrell <dsmurrell@gmail.com>, Isidro Cortes
+    <isidrolauscher@gmail.com>
+Depends:
+    ggplot2,
+    pbapply,
+    caTools,
+    caret,
+    kernlab,
+    gbm,
+    grid,
+    gridExtra,
+    vegan,
+    protr,
+    maptools,
+    directlabels
+Description: A group of utilities to rapidly train and analyse models built to
+    predict physicochemical properties and bioactivities of small molecules.
+    The package also permits the training of models for bioactivity modeling:
+    Quantitative-Structure Activity Relationships (QSAR), Proteochemometrics
+    (PCM) and Chemogenomics. Two tutorials are provided.
+NeedsCompile: Yes
+License: GPL
+LazyLoad: yes
+LazyData: no

@@ -1,0 +1,6 @@
+cd src
+mkdir build
+cd build
+cmake ../build_scripts/indigo-all
+make
+cd ../..
