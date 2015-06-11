@@ -1,0 +1,3 @@
+load("/Users/daniel/Dropbox/projects/camb/camb/tests/testthat/reference_descriptors.rds")
+load("/Users/daniel/Dropbox/projects/camb/camb/tests/testthat/reference_standardisation_options.rds")
+load("/Users/daniel/Dropbox/projects/camb/camb/tests/testthat/reference_descriptors.rds")
