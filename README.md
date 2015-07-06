@@ -15,6 +15,8 @@ Coding is done with the Google's R style guide: http://google-styleguide.googlec
 
 camb can be installed the by typing: library(devtools); install_github("cambDI/camb/camb")
 
+Additionally, one can download the zip file and type in the command line (after unzipping the file): R CMD install camb
+
 General requirements:
 
 1. Make sure that cmake (version >= 2.8) is installed.
