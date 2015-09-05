@@ -1,3 +1,5 @@
+please note: Windows users will not currently be able to install the package due to some compilation issues with the Indigo dependency. We are currently working with Indigo to right this and should hopefully be able to support the Windows OS soon.
+
 # camb - chemistry aware model builder
 ======
 
