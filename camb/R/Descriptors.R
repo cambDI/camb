@@ -277,7 +277,7 @@ AADescs <- function(Data, type="Z5",...){
     
 
     if  (is.vector(Data)){
-	  descs_path <- system.file("extdata", "AA_descs.rds", package="camb")
+	  descs_path <- system.file("extdata", "aa_descs.rds", package="camb")
 	  descs <- readRDS(descs_path)
       types <- c("ProtFP8","TScales","VHSE","STScales","BLOSUM","FASGAI","MSWHIM","Z5","Z3")
       type <- match.arg(type,types,several.ok=TRUE)
@@ -287,7 +287,7 @@ AADescs <- function(Data, type="Z5",...){
       return(match_AA1_vec(Data,sel))
 
     } else {
-	  descs_path <- system.file("extdata", "AA_descs.rds", package="camb")
+	  descs_path <- system.file("extdata", "aa_descs.rds", package="camb")
 	  descs <- readRDS(descs_path)
 	  types <- c("ProtFP8","TScales","Tscales","VHSE","STScales","BLOSUM","FASGAI","MSWHIM","Z5","Z3")
       type <- match.arg(type,types,several.ok=TRUE)
