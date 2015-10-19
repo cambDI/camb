@@ -8,23 +8,17 @@ MaxPerf <- function (meanNoise = 0, sdNoise, resp, lenPred, stds=NULL,
   isnot.vector <- function(x) ! is.vector(x)
   isnot.null <- function(x) ! is.null(x)
   vplayout <- function(x, y) viewport(layout.pos.row = x, layout.pos.col = y)
-  if (is.null(stds)){stds=rnorm(length(resp),mean=meanNoise,sd=sdNoise)}
+  if (is.null(stds)){stds=rnorm(length(resp),mean=meanNoise,sd=sdNoise)}else{stds=stds*sample(c(1,-1),size=len(resp),replace=T)}
   R2 <- c()
   R02 <- c()
   Q2 <- c()
   rmsep <- c()
   for (i in 1:iters) {
-    ##
     set.seed(i)
     idx <- sample(seq(1,length(resp)),lenPred, replace=FALSE)
     x <- resp[idx]
     noise <- stds[idx]
-    #noise <- noise[!is.na(x)] 
-    #x <- !is.na(x)
     y <- x + noise
-    #length(y)
-    #length(x)
-    ##
     R2[i] <- Rsquared(y, x)
     Q2[i] <- Qsquared2(y, x)
     R02[i] <- Rsquared0(y, x)
