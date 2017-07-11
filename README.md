@@ -22,9 +22,9 @@ Step 1 (allocating swap space) is only required if you choose the smallest dropl
 the $20/m droplet then you can skip this step and the installation goes much faster.
 
 # step 0 - create a Digital Ocean droplet
-Register with Digital Ocean https://m.do.co/c/ae523dc7d5e4
-Create a droplet with the Ubuntu 16.04.2 x64 operating system (add an ssh key for easy access)
-ssh into your droplet and continue to the next step
+- Register with Digital Ocean https://m.do.co/c/ae523dc7d5e4
+- Create a droplet with the Ubuntu 16.04.2 x64 operating system (add an ssh key for easy access)
+- ssh into your droplet and continue to the next step
 
 # step 1 - allocate swap space
 - sudo fallocate -l 2G /swapfile
@@ -34,18 +34,18 @@ ssh into your droplet and continue to the next step
 - echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 # step 2 - install requirements for RStudio Server and camb
-sudo apt-get update
-sudo apt-get install -y r-base gdebi-core cmake libcurl4-gnutls-dev
-libssl-dev libfreetype6-dev libfontconfig1-dev
-wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-sudo gdebi rstudio-server-1.0.143-amd64.deb
-sudo adduser david
+- sudo apt-get update
+- sudo apt-get install -y r-base gdebi-core cmake libcurl4-gnutls-dev
+- libssl-dev libfreetype6-dev libfontconfig1-dev
+- wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+- sudo gdebi rstudio-server-1.0.143-amd64.deb
+- sudo adduser david
 
 # step 3 - install camb
-connect through the browser to http://your_droplet_IP:8787 (the R Studio server)
-> install.packages('devtools')
-> library(devtools)
-> install_github("cambDI/camb/camb")
+- connect through the browser to http://your_droplet_IP:8787 (the R Studio server)
+- > install.packages('devtools')
+- > library(devtools)
+- > install_github("cambDI/camb/camb")
 --- End Digital Ocean R Studio Server Method ---
 
 --- Original installation instructions (may be prone to not working as dependencies have changed) ---
