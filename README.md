@@ -27,11 +27,11 @@ Create a droplet with the Ubuntu 16.04.2 x64 operating system (add an ssh key fo
 ssh into your droplet and continue to the next step
 
 # step 1 - allocate swap space
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+- sudo fallocate -l 2G /swapfile
+- sudo chmod 600 /swapfile
+- sudo mkswap /swapfile
+- sudo swapon /swapfile
+- echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 # step 2 - install requirements for RStudio Server and camb
 sudo apt-get update
