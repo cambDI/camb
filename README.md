@@ -50,7 +50,8 @@ the $20/m droplet then you can skip this step and the installation goes much fas
 
 --- End Digital Ocean R Studio Server Method ---
 
---- Original installation instructions (may be prone to not working as dependencies have changed) ---
+--- Original installation instructions (may be prone to errors as dependencies have changed) ---
+
 camb can be installed the by typing: library(devtools); install_github("cambDI/camb/camb")
 
 Additionally, one can download the zip file and type in the command line (after unzipping the file): R CMD install camb
