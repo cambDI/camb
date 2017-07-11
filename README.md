@@ -18,6 +18,7 @@ Coding is done with the Google's R style guide: http://google-styleguide.googlec
 NOTE: If the installation instructions here no longer work for you (because of updates to OSes and R), you can use the below method (tested 11/7/2017 with Ubuntu 16.04.2 x64) to setup a droplet on Digital Ocean which you can access through R Studio Server through the browser.
 
 --- Digital Ocean R Studio Server Method ---
+
 Step 1 (allocating swap space) is only required if you choose the smallest droplet ($5/m). If you chose
 the $20/m droplet then you can skip this step and the installation goes much faster.
 
@@ -46,6 +47,7 @@ the $20/m droplet then you can skip this step and the installation goes much fas
 - > install.packages('devtools')
 - > library(devtools)
 - > install_github("cambDI/camb/camb")
+
 --- End Digital Ocean R Studio Server Method ---
 
 --- Original installation instructions (may be prone to not working as dependencies have changed) ---
