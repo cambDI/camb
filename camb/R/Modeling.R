@@ -53,7 +53,7 @@ RemoveNearZeroVarianceFeatures <- function(dataset, frequencyCutoff = 30/1,...) 
 }
 
 RemoveHighlyCorrelatedFeatures <- function(dataset, correlationCutoff = 0.95,...) {
-  hc.columns <- findCorrelation(cor(dataset$x.train), correlationCutoff,...)
+  hc.columns <- findCorrelation(cor(dataset$x.train,use="pairwise.complete.obs"), correlationCutoff,...)
   if (length(hc.columns) != 0) {
     message(paste(length(hc.columns), "features removed with correlation above cutoff"))
     dataset$x.train <- dataset$x.train[, -hc.columns]
